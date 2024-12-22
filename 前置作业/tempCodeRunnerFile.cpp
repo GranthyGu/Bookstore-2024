@@ -1,1 +1,2 @@
-isMo
+
+    Node() : value(-
