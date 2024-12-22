@@ -5,7 +5,6 @@
 #include <climits>
 #include <string>
 #include <algorithm>
-using namespace std;
 
 const int maxN = 500;
 
@@ -14,7 +13,7 @@ public:
     char index[60];
     int value;
     Node() : value(-1) {}
-    Node(string str, int value) : value(value) {
+    Node(std::string str, int value) : value(value) {
         for (int i = 0; i < str.length(); i++) {
             index[i] = str[i];
         }
@@ -54,13 +53,13 @@ public:
         value = other.value;
         return *this;
     }
-    void writetofile(fstream& File) {
+    void writetofile(std::fstream& File) {
         for (int i = 0; i < 60; i++) {
             File.write(reinterpret_cast<char *> (&index[i]), sizeof(char));
         }
         File.write(reinterpret_cast<char *>(&value), sizeof(int));
     }
-    void readfromile(fstream& File) {
+    void readfromile(std::fstream& File) {
         for (int i = 0; i < 60; i++) {
             File.read(reinterpret_cast<char *> (&index[i]), sizeof(char));
         }
@@ -77,14 +76,14 @@ public:
     Node nodeofhead;
     Head_Node() : size(0), addrofvalues(-1), nextad(-1), adrofiteself(-1) {}
     Head_Node(int size, long add1, long add2, long add3, Node node) : size(size), addrofvalues(add1), nextad(add2), adrofiteself(add3), nodeofhead(node) {}
-    void writeto(fstream& File_) {
+    void writeto(std::fstream& File_) {
         File_.write(reinterpret_cast<char *> (&size), sizeof(int));
         File_.write(reinterpret_cast<char *> (&addrofvalues), sizeof(long));
         File_.write(reinterpret_cast<char *> (&nextad), sizeof(long));
         File_.write(reinterpret_cast<char *> (&adrofiteself), sizeof(long));
         nodeofhead.writetofile(File_);
     }
-    void readfrom(fstream& File_) {
+    void readfrom(std::fstream& File_) {
         File_.read(reinterpret_cast<char *> (&size), sizeof(int));
         File_.read(reinterpret_cast<char *> (&addrofvalues), sizeof(long));
         File_.read(reinterpret_cast<char *> (&nextad), sizeof(long));
@@ -103,38 +102,38 @@ public:
 
 class maplist {
 private:
-    string file_of_values;
-    string file_of_heads;
-    fstream File_v;
-    fstream File_h;
+    std::string file_of_values;
+    std::string file_of_heads;
+    std::fstream File_v;
+    std::fstream File_h;
 public:
-    maplist(string str1, string str2) : file_of_heads(str1), file_of_values(str2) {}
+    maplist(std::string str1, std::string str2) : file_of_heads(str1), file_of_values(str2) {}
     void openfile() {
-        File_v.open(file_of_values, ios::in | ios::out | ios::binary);
+        File_v.open(file_of_values, std::ios::in | std::ios::out | std::ios::binary);
         if (!File_v) {
             File_v.close();
             File_v.clear(); 
-            File_v.open(file_of_values, ios::out | ios::binary);
+            File_v.open(file_of_values, std::ios::out | std::ios::binary);
             File_v.close();
-            File_v.open(file_of_values, ios::in | ios::out | ios::binary);
+            File_v.open(file_of_values, std::ios::in | std::ios::out | std::ios::binary);
         }
-        File_h.open(file_of_heads, ios::in | ios::out | ios::binary);
+        File_h.open(file_of_heads, std::ios::in | std::ios::out | std::ios::binary);
         if (!File_h) {
             File_h.close();
             File_h.clear();
-            File_h.open(file_of_heads, ios::out | ios::binary);
+            File_h.open(file_of_heads, std::ios::out | std::ios::binary);
             File_h.close();
-            File_h.open(file_of_heads, ios::in | ios::out | ios::binary);
+            File_h.open(file_of_heads, std::ios::in | std::ios::out | std::ios::binary);
         }       
     }
     void split_head_node(Head_Node& hn) {
-        vector<Node> values(hn.size);
+        std::vector<Node> values(hn.size);
         File_v.seekg(hn.addrofvalues);
         File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn.size);
         Node head_node_of_new = values[hn.size / 2];
-        vector<Node> newvalues(values.begin() + hn.size / 2, values.end());
+        std::vector<Node> newvalues(values.begin() + hn.size / 2, values.end());
         values.resize(hn.size / 2);
-        File_v.seekp(0, ios::end);
+        File_v.seekp(0, std::ios::end);
         long adofnew = File_v.tellp();
         File_v.write(reinterpret_cast<char*>(newvalues.data()), sizeof(Node) * newvalues.size());
         Node c;
@@ -145,7 +144,7 @@ public:
         for (int i = 0; i < maxN - values.size(); i++) {
             File_v.write(reinterpret_cast<char *>(&c), sizeof(Node));
         }
-        File_h.seekp(0, ios::end);
+        File_h.seekp(0, std::ios::end);
         long adr_of_newhn = File_h.tellp();
         Head_Node newhd(hn.size - hn.size / 2, adofnew, hn.nextad, adr_of_newhn, head_node_of_new);
         newhd.writeto(File_h);
@@ -154,8 +153,8 @@ public:
         File_h.seekp(hn.adrofiteself);
         hn.writeto(File_h);
     }
-    void insert(string index, int value) {
-        File_h.seekg(0, ios::end);
+    void insert(std::string index, int value) {
+        File_h.seekg(0, std::ios::end);
         if (File_h.tellg() == 0) {
             Node tmpp(index, value);
             Head_Node tmp(1, 0, -1, 0, tmpp);
@@ -166,7 +165,7 @@ public:
                 t.writetofile(File_v);
             }
         } else {
-            File_h.seekg(0, ios::beg);
+            File_h.seekg(0, std::ios::beg);
             Node tmpp(index, value);
             bool found = false;
             Head_Node hn;
@@ -188,7 +187,7 @@ public:
                 }
             }
             if (!found) {
-                vector<Node> values(hn.size);
+                std::vector<Node> values(hn.size);
                 File_v.seekg(hn.addrofvalues);
                 File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn.size);
                 if (find(values.begin(), values.end(), tmpp) != values.end()) {
@@ -217,7 +216,7 @@ public:
                 hn.size++;
                 File_h.seekp(hn.adrofiteself);
                 hn.writeto(File_h);
-                vector<Node> values(hn.size - 1);
+                std::vector<Node> values(hn.size - 1);
                 File_v.seekg(hn.addrofvalues);
                 File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * (hn.size - 1));
                 values.insert(values.begin(), tmpp);
@@ -228,7 +227,7 @@ public:
                 }
                 return;
             } else {
-                vector<Node> values(hn_before.size);
+                std::vector<Node> values(hn_before.size);
                 File_v.seekg(hn_before.addrofvalues);
                 File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn_before.size);
                 if (find(values.begin(), values.end(), tmpp) != values.end()) {
@@ -255,13 +254,13 @@ public:
         }
     }
 
-    void remove(string index, int value) {
-        File_h.seekg(0, ios::end);
+    void remove(std::string index, int value) {
+        File_h.seekg(0, std::ios::end);
         if (File_h.tellg() == 0) {
             return;
         }
         Node c;
-        File_h.seekg(0, ios::beg);
+        File_h.seekg(0, std::ios::beg);
         Node tmpp(index, value);
         bool found = false;
         Head_Node hn;
@@ -289,7 +288,7 @@ public:
             if (found) {
                 return;
             } else {
-                vector<Node> values(hn.size);
+                std::vector<Node> values(hn.size);
                 File_v.seekg(hn.addrofvalues);
                 File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn.size);
                 auto it = find(values.begin(), values.end(), tmpp);
@@ -306,8 +305,8 @@ public:
                         File_v.open(file_of_values, std::ios::out | std::ios::binary | std::ios::trunc);
                         File_h.close();
                         File_v.close();
-                        File_h.open(file_of_heads, ios::in | ios::out | ios::binary);
-                        File_v.open(file_of_values, ios::in | ios::out | ios::binary);
+                        File_h.open(file_of_heads, std::ios::in | std::ios::out | std::ios::binary);
+                        File_v.open(file_of_values, std::ios::in | std::ios::out | std::ios::binary);
                     } else {
                         hn.nodeofhead = values[1];
                         values.erase(it);
@@ -333,7 +332,7 @@ public:
         }
         if (!found)
         {
-            vector<Node> values(hn.size);
+            std::vector<Node> values(hn.size);
             File_v.seekg(hn.addrofvalues);
             File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn.size);
             auto it = find(values.begin(), values.end(), tmpp);
@@ -369,7 +368,7 @@ public:
             }
             return;
         }
-        vector<Node> values(hn_before.size);
+        std::vector<Node> values(hn_before.size);
         File_v.seekg(hn_before.addrofvalues);
         File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn_before.size);
         auto it = find(values.begin(), values.end(), tmpp);
@@ -380,7 +379,7 @@ public:
         {
             if (values.size() == 1 && num == 2)
             {
-                File_h.seekp(0, ios::beg);
+                File_h.seekp(0, std::ios::beg);
                 hn.adrofiteself = 0;
                 hn.writeto(File_h);
                 return;
@@ -415,17 +414,17 @@ public:
         File_v.write(reinterpret_cast<char*>(&c), sizeof(Node));
         return;
     }
-    void Find(string index) {
+    void Find(std::string index) {
         Node maximal(index, INT_MAX);
         Node minimal(index, 0);
         bool found = false;
-        File_h.seekg(0, ios::end);
+        File_h.seekg(0, std::ios::end);
         if (File_h.tellg() == 0) {
-            cout << "null" << endl;
+            std::cout << "null" << std::endl;
             return;
         }
-        File_h.seekg(0, ios::beg);
-        vector<Head_Node> All;
+        File_h.seekg(0, std::ios::beg);
+        std::vector<Head_Node> All;
         while (true) {
             Head_Node tmp;
             tmp.readfrom(File_h);
@@ -459,21 +458,21 @@ public:
         bool flag = false;
         for (int i = first; i < last; i++) {
             File_v.seekg(All[i].addrofvalues);
-            vector<Node> values(All[i].size);
+            std::vector<Node> values(All[i].size);
             File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * All[i].size);
             for (int j = 0; j < values.size(); j++)
             {
                 if ((values[j] > minimal || values[j] == minimal) && (values[j] < maximal || values[j] == maximal))
                 {
                     flag = true;
-                    cout << values[j].value << ' ';
+                    std::cout << values[j].value << ' ';
                 }
             }
         }
         if (!flag) {
-            cout << "null" << endl;
+            std::cout << "null" << std::endl;
         } else {
-            cout << endl;
+            std::cout << std::endl;
         }
     }
 };
@@ -482,24 +481,24 @@ int main() {
     maplist bl("file_of_heads", "file_of_values");
     bl.openfile();
     int n;
-    cin >> n;
-    string operation;
-    string index;
+    std::cin >> n;
+    std::string operation;
+    std::string index;
     int value;
     for (int i = 0; i < n; i++) {
-        cin >> operation;
+        std::cin >> operation;
         if (operation == "insert") {
-            cin >> index;
-            cin >> value;
+            std::cin >> index;
+            std::cin >> value;
             bl.insert(index, value);
         }
         if (operation == "delete") {
-            cin >> index;
-            cin >> value;
+            std::cin >> index;
+            std::cin >> value;
             bl.remove(index, value);
         }
         if (operation == "find") {
-            cin >> index;
+            std::cin >> index;
             bl.Find(index);
         }
     }
