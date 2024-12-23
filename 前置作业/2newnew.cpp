@@ -6,7 +6,7 @@
 #include <string>
 #include <algorithm>
 
-const int maxN = 500;
+const int maxN = 1000;
 
 struct Node {
 public:
@@ -37,6 +37,22 @@ public:
             }
         }
         return value > other.value;
+    }
+    bool operator<=(const Node& other) {
+        for (int i = 0; i < 60; i++) {
+            if (index[i] != other.index[i]) {
+                return index[i] <= other.index[i];
+            }
+        }
+        return value <= other.value;
+    }
+    bool operator>=(const Node& other) {
+        for (int i = 0; i < 60; i++) {
+            if (index[i] != other.index[i]) {
+                return index[i] >= other.index[i];
+            }
+        }
+        return value >= other.value;
     }
     bool operator==(const Node& other) const {
         for (int i = 0; i < 60; i++) {
