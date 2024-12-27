@@ -122,6 +122,10 @@ BookManager::BookManager() : selected(false) {
     mapofKeywords.openfile();
 }
 
+void BookManager::setLogManagement(LogManagement lm) {
+    LM = lm;
+}
+
 void BookManager::Show() {
     Node<Book> minimal = mapofISBN.Findminimal();
     Node<Book> maximal = mapofISBN.Findmaximal();
@@ -206,11 +210,7 @@ void BookManager::show(std::string str, int i) {
 void BookManager::buy(std::string str, std::string quant) {
     try {
         int quantity = std::stoi(quant);
-        if (str.length() > 20) {
-            throw Error();
-            return;
-        }
-        if (quantity <= 0) {
+        if (str.length() > 20 || quantity <= 0) {
             throw Error();
             return;
         }
@@ -231,6 +231,7 @@ void BookManager::buy(std::string str, std::string quant) {
                 double total = (double)quantity * item.Price;
                 std::cout << std::fixed << std::setprecision(2);
                 std::cout << total << "\n";
+                LM.addinfo(total);
             }
             mapofISBN.insert(str, item);
         }
@@ -366,7 +367,7 @@ void BookManager::modify(std::string str, int i) {
     }
 }
 
-void BookManager::import(std::string quantity) {
+void BookManager::import(std::string quantity, std::string totalcost) {
     if (!selected) {
         throw Error();
         return;
@@ -380,10 +381,12 @@ void BookManager::import(std::string quantity) {
     mapofName.remove(bookselected.BookName, bookselected);
     try {
         int num = std::stoi(quantity);
-        if (num <= 0) {
+        double total = std::stod(totalcost);
+        if (num <= 0 || total <= 0) {
             throw Error();
             return;
         }
+        LM.addinfo(-total);
         bookselected.Inventory += num;
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
         mapofAuthor.insert(bookselected.Author, bookselected);

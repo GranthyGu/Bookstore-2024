@@ -138,6 +138,10 @@ void AccountManagement::logout() {
         return;
     } else {
         log_in_list.pop();
+        if (log_in_list.empty()) {
+            cur_privilege = -1;
+            return;
+        }
         tmpAccount tmp = log_in_list.top();
         cur_privilege = tmp.ac.Privilege;
         return;

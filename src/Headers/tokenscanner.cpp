@@ -6,6 +6,7 @@
 
 #include "tokenscanner.hpp"
 
+TokenScanner::TokenScanner() {}
 TokenScanner::TokenScanner(const std::string& input) : input(input) {}
 
 void TokenScanner::set_input(const std::string& new_input) {
@@ -57,7 +58,8 @@ const std::vector<std::string>& TokenScanner::getTokens() const {
 
 std::string TokenScanner::getCommand() const {
     if (tokens.empty()) {
-        return "";
+        throw Error();
+        return;
     } else {
         return tokens[0];
     }

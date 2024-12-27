@@ -30,11 +30,13 @@
 class TokenScanner {
 private:
     std::string input;
-    std::vector<std::string> tokens;
+    
     bool QuotedString(int& pos, std::string& token);
     bool Parameter(int& pos, std::string& token);
     void skipSpaces(int& pos);
 public:
+    std::vector<std::string> tokens;
+    TokenScanner();
     TokenScanner(const std::string& input);
     void set_input(const std::string& new_input);
     bool scan();

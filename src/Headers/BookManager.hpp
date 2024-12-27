@@ -17,6 +17,7 @@
 #include <unordered_set>
 #include "maplist.hpp"
 #include "error.hpp"
+#include "LogManager.hpp"
 
 /*
  * class ISBN:
@@ -76,14 +77,16 @@ private:
     maplist<ISBN> mapofKeywords;
     Book bookselected;
     bool selected;
+    LogManagement LM;
 public:
     BookManager();
+    void setLogManagement(LogManagement lm);
     void Show();
     void show(std::string str, int i);
     void buy(std::string str, std::string quant);
     void select(std::string str);
     void modify(std::string str, int i);
-    void import(std::string quantity);
+    void import(std::string quantity, std::string totalcost);
 };
 
 #endif      //BOOK_MANAGER_HPP
