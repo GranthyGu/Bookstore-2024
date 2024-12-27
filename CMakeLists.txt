@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 # 添加源文件
 add_executable(MapListTest
-        Headers/maplist.hpp
-        Headers/error.cpp
-        Headers/test.cpp
+        src/Headers/maplist.hpp
+        src/Headers/error.cpp
+        src/Headers/test.cpp
 )
 
 # 设置包含路径
