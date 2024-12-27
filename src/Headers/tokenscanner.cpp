@@ -80,6 +80,7 @@ bool TokenScanner::scan() {
             if (pos < input.length() && input[pos] == '=') {
                 pos++;
                 if (!Parameter(pos, token)) {
+                    throw Error();
                     return false;
                 }
                 tokens.push_back(token);

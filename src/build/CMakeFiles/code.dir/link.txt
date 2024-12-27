@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/code.dir/Headers/maplist.cpp.o CMakeFiles/code.dir/Headers/error.cpp.o CMakeFiles/code.dir/Headers/testformap.cpp.o -o code
