@@ -68,16 +68,20 @@ Book::Book(std::string str) : isbn(str), Inventory(0), Price(0.0) {
     std::memset(Keyword, 0, sizeof(Keyword));
 }
 
-std::vector<std::string> Book::scanKeywords() {
+std::vector<std::string> Book::scanKeywords(std::string str) {
     std::vector<std::string> tmp;
     int i = 0;
     std::string token;
+    if (str.length() > 60) {
+        throw Error();
+        return;
+    }
     while (true) {
-        if (i >= 60 || Keyword[i] == '\0') {
+        if (i >= str.length() || str[i] == '\0') {
             break;
         }
-        if (Keyword[i] != '|') {
-            token += Keyword[i];
+        if (str[i] != '|') {
+            token += str[i];
         } else {
             tmp.push_back(token);
             token.clear();
@@ -122,7 +126,7 @@ BookManager::BookManager() : selected(false) {
     mapofKeywords.openfile();
 }
 
-void BookManager::setLogManagement(LogManagement lm) {
+void BookManager::setLogManagement(LogManagement& lm) {
     LM = lm;
 }
 
@@ -278,7 +282,11 @@ void BookManager::modify(std::string str, int i) {
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
         mapofAuthor.remove(bookselected.Author, bookselected);
         mapofName.remove(bookselected.BookName, bookselected);
-        std::vector<std::string> tmp = bookselected.scanKeywords();
+        std::string strr;
+        for (int i = 0; i < 60; i++) {
+            strr += bookselected.Keyword[i];
+        }
+        std::vector<std::string> tmp = bookselected.scanKeywords(strr);
         for (int j = 0; j < tmp.size(); j++) {
             mapofKeywords.remove(tmp[j], bookselected.isbn);
         }
@@ -331,14 +339,18 @@ void BookManager::modify(std::string str, int i) {
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
         mapofAuthor.remove(bookselected.Author, bookselected);
         mapofName.remove(bookselected.BookName, bookselected);
-        std::vector<std::string> tmp = bookselected.scanKeywords();
+        std::vector<std::string> new_keyword = bookselected.scanKeywords(str);
+        std::string strr;
+        for (int i = 0; i < 60; i++) {
+            strr += bookselected.Keyword[i];
+        }
+        std::vector<std::string> tmp = bookselected.scanKeywords(strr);
         for (int j = 0; j < tmp.size(); j++) {
             mapofKeywords.remove(tmp[j], bookselected.isbn);
         }
         for (int k = 0; k < str.length(); k++) {
             bookselected.Keyword[k] = str[k];
         }
-        std::vector<std::string> new_keyword = bookselected.scanKeywords();
         for (int j = 0; j < tmp.size(); j++) {
             mapofKeywords.insert(new_keyword[j], bookselected.isbn);
         }

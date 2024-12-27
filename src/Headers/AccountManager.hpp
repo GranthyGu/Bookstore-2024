@@ -14,6 +14,7 @@
 #include <vector>
 #include <string>
 #include <stack>
+#include <unordered_map>
 #include "maplist.hpp"
 #include "BookManager.hpp"
 
@@ -44,8 +45,8 @@ struct tmpAccount {
 class AccountManagement {
 private:
     maplist<Account> mapofUserID;
-    std::stack<tmpAccount> log_in_list;
 public:
+std::stack<tmpAccount> log_in_list;
     int cur_privilege;
     AccountManagement();
     void su(std::string ID);

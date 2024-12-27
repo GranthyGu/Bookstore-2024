@@ -28,6 +28,16 @@ int main() {
             std::cin >> index;
             Node<int> minimal(index, 0);
             Node<int> maximal(index, INT_MAX);
+            std::vector<Node<int>> tmp = bl.Find(maximal, minimal);
+            for (int i = 0; i < tmp.size(); i++)
+            {
+                std::cout << tmp[i].value << ' ';
+            }
+            if (tmp.size() == 0)
+            {
+                std::cout << "null";
+            }
+            std::cout << std::endl;
         }
     }
     return 0;

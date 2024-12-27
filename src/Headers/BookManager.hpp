@@ -53,7 +53,7 @@ public:
     Book();
     Book(ISBN isbn);
     Book(std::string str);
-    std::vector<std::string> scanKeywords();
+    std::vector<std::string> scanKeywords(std::string str);
     bool operator<(const Book& other);
     bool operator>(const Book& other);
     bool operator==(const Book& other) const;
@@ -75,12 +75,12 @@ private:
     maplist<Book> mapofName;
     maplist<Book> mapofAuthor;
     maplist<ISBN> mapofKeywords;
+public:
     Book bookselected;
     bool selected;
     LogManagement LM;
-public:
     BookManager();
-    void setLogManagement(LogManagement lm);
+    void setLogManagement(LogManagement& lm);
     void Show();
     void show(std::string str, int i);
     void buy(std::string str, std::string quant);

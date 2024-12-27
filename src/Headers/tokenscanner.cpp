@@ -16,6 +16,9 @@ void TokenScanner::set_input(const std::string& new_input) {
 
 bool TokenScanner::QuotedString(int& pos, std::string& token) {
     pos++;
+    if (input[pos] == '"') {
+        return false;
+    }
     while (pos < input.length() && input[pos] != '"') {
         token += input[pos];
         pos++;
@@ -38,6 +41,9 @@ bool TokenScanner::Parameter(int& pos, std::string& token) {
         }
         token += quotedValue;
     } else {
+        if (input[pos] == ' ') {
+            return false;
+        }
         while (pos < input.length() && input[pos] != ' ') {
             token += input[pos];
             pos++;

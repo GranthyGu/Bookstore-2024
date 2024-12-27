@@ -20,6 +20,8 @@ int main() {
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
+    LogManagement LM;
+    BM.setLogManagement(LM);
     while (true) {
         try {
             std::string str;
@@ -36,9 +38,15 @@ int main() {
                 }
                 if (scanner.tokens.size() == 2) {
                     AM.su(scanner.tokens[1]);
+                    BM.selected = false;
+                    Book tmp;
+                    BM.bookselected = tmp;
                 }
                 if (scanner.tokens.size() == 3) {
                     AM.su(scanner.tokens[1], scanner.tokens[2]);
+                    BM.selected = false;
+                    Book tmp;
+                    BM.bookselected = tmp;
                 }
                 continue;
             }
@@ -48,6 +56,15 @@ int main() {
                     continue;
                 }
                 AM.logout();
+                if (AM.cur_privilege == -1) {
+                    BM.selected = false;
+                    Book tmp;
+                    BM.bookselected = tmp;
+                    continue;
+                }
+                tmpAccount tmp = AM.log_in_list.top();
+                BM.selected = tmp.selected;
+                BM.bookselected = tmp.book_selected;
                 continue;
             }
             if (scanner.getCommand() == "register") {
@@ -88,29 +105,106 @@ int main() {
                 continue;
             }
             if (scanner.getCommand() == "show") {
-                /* code */
+                //TODO
                 continue;
             }
             if (scanner.getCommand() == "buy") {
-                /* code */
+                if (AM.cur_privilege == -1 || scanner.tokens.size() != 3)
+                {
+                    throw Error();
+                    continue;
+                }
+                BM.buy(scanner.tokens[1], scanner.tokens[2]);
                 continue;
             }
             if (scanner.getCommand() == "select") {
-                /* code */
+                if (AM.cur_privilege < 3 || scanner.tokens.size() != 2)
+                {
+                    throw Error();
+                    continue;
+                }
+                BM.select(scanner.tokens[1]);
+                tmpAccount tmp = AM.log_in_list.top();
+                tmp.book_selected = BM.bookselected;
+                tmp.selected = BM.selected;
+                AM.log_in_list.pop();
+                AM.log_in_list.push(tmp);
                 continue;
             }
             if (scanner.getCommand() == "modify") {
-                /* code */
+                if (AM.cur_privilege < 3 || scanner.tokens.size() < 3) {
+                    throw Error();
+                    continue;
+                }
+                bool ISBNmodify = false;
+                bool NAMEmodify = false;
+                bool AUTHORmodify = false;
+                bool KEYWORDmodify = false;
+                bool PRICEmodify = false;
+                for (int i = 1; i < scanner.tokens.size() - 1; i++)
+                {
+                    if (scanner.tokens[i] == "ISBN") {
+                        if (ISBNmodify) {
+                            throw Error();
+                            return;
+                        }
+                        i++;
+                        BM.modify(scanner.tokens[i], 0);
+                        ISBNmodify = true;
+                    }
+                    if (scanner.tokens[i] == "name") {
+                        if (NAMEmodify) {
+                            throw Error();
+                            return;
+                        }
+                        i++;
+                        BM.modify(scanner.tokens[i], 1);
+                        NAMEmodify = true;
+                    }
+                    if (scanner.tokens[i] == "author") {
+                        if (AUTHORmodify) {
+                            throw Error();
+                            return;
+                        }
+                        i++;
+                        BM.modify(scanner.tokens[i], 2);
+                        AUTHORmodify = true;
+                    }
+                    if (scanner.tokens[i] == "keyword") {
+                        if (KEYWORDmodify) {
+                            throw Error();
+                            return;
+                        }
+                        i++;
+                        BM.modify(scanner.tokens[i], 3);
+                        KEYWORDmodify = true;
+                    }
+                    if (scanner.tokens[i] == "price") {
+                        if (PRICEmodify) {
+                            throw Error();
+                            return;
+                        }
+                        i++;
+                        BM.modify(scanner.tokens[i], 4);
+                        PRICEmodify = true;
+                    }
+                }
                 continue;
             }
             if (scanner.getCommand() == "import") {
-                /* code */
+                if (AM.cur_privilege < 3 || scanner.tokens.size() != 3) {
+                    throw Error();
+                    continue;
+                }
+                BM.import(scanner.tokens[1], scanner.tokens[2]);
                 continue;
             }
             if (scanner.getCommand() == "log") {
                 /* code */
                 continue;
             }
+            throw Error();
+            continue;
         }
         catch(const std::exception& e) {
             std::cerr << e.what() << '\n';
