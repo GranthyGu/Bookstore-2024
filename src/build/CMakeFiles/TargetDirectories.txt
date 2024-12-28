@@ -1,3 +1,0 @@
-/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/build/CMakeFiles/MapListTest.dir
-/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/build/CMakeFiles/edit_cache.dir
-/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/build/CMakeFiles/rebuild_cache.dir

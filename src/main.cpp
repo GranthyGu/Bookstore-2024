@@ -105,8 +105,66 @@ int main() {
                 continue;
             }
             if (scanner.getCommand() == "show") {
-                //TODO
-                continue;
+                if (scanner.tokens.size() == 1) {
+                    BM.Show();
+                }
+                if (scanner.tokens[1] == "finance") {
+                    if (scanner.tokens.size() == 3) {
+                        int num;
+                        try {
+                            num = std::stoi(scanner.tokens[2]);
+                        }
+                        catch(const std::exception& e) {
+                            throw Error();
+                            continue;
+                        }
+                        if (num == 0) {
+                            std::cout << std::endl;
+                        }
+                        double income = BM.LM.calcincome(num);
+                        double outcome = BM.LM.calcoutcome(num);
+                        std::cout << std::fixed << std::setprecision(2);
+                        std::cout << "+ " << income << " - " << outcome << std::endl;
+                    }
+                    if (scanner.tokens.size() == 2) {
+                        int num = BM.LM.Finance.size();
+                        double income = BM.LM.calcincome(num);
+                        double outcome = BM.LM.calcoutcome(num);
+                        std::cout << std::fixed << std::setprecision(2);
+                        std::cout << "+ " << income << " - " << outcome << std::endl;
+                    }
+                    if (scanner.tokens.size() > 3) {
+                        throw Error();
+                        continue;
+                    }
+                } else {
+                    if (scanner.tokens.size() != 3) {
+                        throw Error();
+                        continue;
+                    }
+                    if (scanner.tokens[1] == "ISBN")
+                    {
+                        BM.show(scanner.tokens[2], 0);
+                        continue;
+                    }
+                    if (scanner.tokens[1] == "name")
+                    {
+                        BM.show(scanner.tokens[2], 1);
+                        continue;
+                    }
+                    if (scanner.tokens[1] == "author")
+                    {
+                        BM.show(scanner.tokens[2], 2);
+                        continue;
+                    }
+                    if (scanner.tokens[1] == "keyword")
+                    {
+                        BM.show(scanner.tokens[2], 3);
+                        continue;
+                    }
+                    throw Error();
+                    continue;
+                }
             }
             if (scanner.getCommand() == "buy") {
                 if (AM.cur_privilege == -1 || scanner.tokens.size() != 3)

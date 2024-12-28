@@ -88,6 +88,7 @@ std::vector<std::string> Book::scanKeywords(std::string str) {
         }
         i++;
     }
+    tmp.push_back(token);
     std::unordered_set<std::string> seen;
     for (auto num : tmp) {
         if (seen.count(num)) {
@@ -193,17 +194,23 @@ void BookManager::show(std::string str, int i) {
             throw Error();
             return;
         }
+        Book t;
+        std::vector<std::string> numofkey = t.scanKeywords(str);
+        if (numofkey.size() != 1) {
+            throw Error();
+            return;
+        }
         ISBN mm(" ");
         ISBN MM("~~~~~~~~~~~~~~~~~~~~");
         Node<ISBN> minimal(str,mm);
         Node<ISBN> maximal(str, MM);
         std::vector<Node<ISBN>> tmp = mapofKeywords.Find(maximal, minimal);
         for (int i = 0; i < tmp.size(); i++) {
-            std::string str;
+            std::string strr;
             for (int j = 0; j < 20; j++) {
-                str += tmp[i].value.Info[j];
+                strr += tmp[i].value.Info[j];
             }
-            show(str, 0);
+            show(strr, 0);
         }
         if (tmp.size() == 0) {
             std::cout << "\n";

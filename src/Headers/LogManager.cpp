@@ -43,7 +43,7 @@ double LogManagement::calcoutcome(int n) {
     double tmp = 0;
     for (int i = 0; i < n; i++) {
         if (Finance[i] < 0) {
-            tmp += Finance[i];
+            tmp += -Finance[i];
         }
     }
     return tmp;
