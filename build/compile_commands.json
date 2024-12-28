@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o"
+},
+{
+  "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o"
+}
+]
