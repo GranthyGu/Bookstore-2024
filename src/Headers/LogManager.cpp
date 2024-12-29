@@ -15,6 +15,7 @@ LogManagement& LogManagement::operator=(const LogManagement &other) {
     for (int i = 0; i < other.Finance.size(); i++){
         Finance.push_back(other.Finance[i]);
     }
+    return *this;
 }
 
 void LogManagement::addinfo(double l) {
@@ -24,7 +25,6 @@ void LogManagement::addinfo(double l) {
 double LogManagement::calcincome(int n) {
     if (n > Finance.size()) {
         throw Error();
-        return;
     }
     double tmp = 0;
     for (int i = 0; i < n; i++) {
@@ -38,7 +38,6 @@ double LogManagement::calcincome(int n) {
 double LogManagement::calcoutcome(int n) {
     if (n > Finance.size()) {
         throw Error();
-        return;
     }
     double tmp = 0;
     for (int i = 0; i < n; i++) {

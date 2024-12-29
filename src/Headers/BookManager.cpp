@@ -12,10 +12,14 @@ ISBN::ISBN() {
 
 ISBN::ISBN(std::string str) {
     if (str.length() > 20) {
+        throw Error();
         return;
     }
     for (int i = 0; i < str.length(); i++) {
         Info[i] = str[i];
+    }
+    for (int i = str.length(); i < 20; i++) {
+        Info[i] = '\0';
     }
 }
 
@@ -74,7 +78,6 @@ std::vector<std::string> Book::scanKeywords(std::string str) {
     std::string token;
     if (str.length() > 60) {
         throw Error();
-        return;
     }
     while (true) {
         if (i >= str.length() || str[i] == '\0') {
@@ -137,7 +140,11 @@ void BookManager::Show() {
     std::vector<Node<Book>> tmp = mapofISBN.Find(maximal, minimal);
     for (int i = 0; i < tmp.size(); i++) {
         std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
-        << tmp[i].value.Keyword << "\t" << tmp[i].value.Price << "\t" << tmp[i].value.Inventory;
+        << tmp[i].value.Keyword << "\t";
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << tmp[i].value.Price << "\t";
+        std::cout << std::fixed << std::setprecision(0);
+        std::cout << tmp[i].value.Inventory;
     }
     std::cout << "\n";
     return;
@@ -149,12 +156,19 @@ void BookManager::show(std::string str, int i) {
             throw Error();
             return;
         }
+        for (int i = str.length(); i < 20; i++) {
+            str += '\0';
+        }
         Book m(str);
         Node<Book> minimal(str, m);
         std::vector<Node<Book>> tmp = mapofISBN.Find(minimal, minimal);
         for (int i = 0; i < tmp.size(); i++) {
             std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
-            << tmp[i].value.Keyword << "\t" << tmp[i].value.Price << "\t" << tmp[i].value.Inventory;
+            << tmp[i].value.Keyword << "\t";
+            std::cout << std::fixed << std::setprecision(2);
+            std::cout << tmp[i].value.Price << "\t";
+            std::cout << std::fixed << std::setprecision(0);
+            std::cout << tmp[i].value.Inventory;
         }
         std::cout << "\n";
         return;
@@ -169,9 +183,17 @@ void BookManager::show(std::string str, int i) {
         std::vector<Node<Book>> tmp = mapofName.Find(maximal, minimal);
         for (int i = 0; i < tmp.size(); i++) {
             std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
-            << tmp[i].value.Keyword << "\t" << tmp[i].value.Price << "\t" << tmp[i].value.Inventory;
+            << tmp[i].value.Keyword << "\t";
+            std::cout << std::fixed << std::setprecision(2);
+            std::cout << tmp[i].value.Price << "\t";
+            std::cout << std::fixed << std::setprecision(0);
+            std::cout << tmp[i].value.Inventory;
+            std::cout << "\n";
         }
-        std::cout << "\n";
+        if (tmp.size() == 0)
+        {
+            std::cout << "\n";
+        }
         return;
     }
     if (i == 2) {     // Author
@@ -184,9 +206,16 @@ void BookManager::show(std::string str, int i) {
         std::vector<Node<Book>> tmp = mapofAuthor.Find(maximal, minimal);
         for (int i = 0; i < tmp.size(); i++) {
             std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
-            << tmp[i].value.Keyword << "\t" << tmp[i].value.Price << "\t" << tmp[i].value.Inventory;
+            << tmp[i].value.Keyword << "\t";
+            std::cout << std::fixed << std::setprecision(2);
+            std::cout << tmp[i].value.Price << "\t";
+            std::cout << tmp[i].value.Inventory;
+            std::cout << "\n";
         }
-        std::cout << "\n";
+        if (tmp.size() == 0)
+        {
+            std::cout << "\n";
+        }
         return;
     }
     if (i == 3) {     // Keyword
@@ -239,7 +268,7 @@ void BookManager::buy(std::string str, std::string quant) {
                 return;
             } else {
                 item.Inventory -= quantity;
-                double total = (double)quantity * item.Price;
+                float total = (float)quantity * item.Price;
                 std::cout << std::fixed << std::setprecision(2);
                 std::cout << total << "\n";
                 LM.addinfo(total);
@@ -259,6 +288,10 @@ void BookManager::select(std::string str) {
         return;
     } else {
         selected = true;
+        for (int i = str.length(); i < 20; i++)
+        {
+            str += '\0';
+        }
         Book mm(str);
         Node<Book> minimal(str, mm);
         std::vector<Node<Book>> tmp = mapofISBN.Find(minimal, minimal);
@@ -281,12 +314,15 @@ void BookManager::modify(std::string str, int i) {
             throw Error();
             return;
         }
-        std::string str_of_isbn(bookselected.isbn.Info, sizeof(bookselected.isbn.Info));
+        std::string str_of_isbn;
+        for (int i = 0; i < 20; i++) {
+            str_of_isbn += bookselected.isbn.Info[i];
+        }
         if (str == str_of_isbn) {
             throw Error();
             return;
         }
-        mapofISBN.remove(bookselected.isbn.Info, bookselected);
+        mapofISBN.remove(str_of_isbn, bookselected);
         mapofAuthor.remove(bookselected.Author, bookselected);
         mapofName.remove(bookselected.BookName, bookselected);
         std::string strr;
@@ -299,7 +335,7 @@ void BookManager::modify(std::string str, int i) {
         }
         ISBN new_isbn(str);
         bookselected.isbn = new_isbn;
-        mapofISBN.insert(bookselected.isbn.Info, bookselected);
+        mapofISBN.insert(str, bookselected);
         mapofAuthor.insert(bookselected.Author, bookselected);
         mapofName.insert(bookselected.BookName, bookselected);
         for (int j = 0; j < tmp.size(); j++) {
@@ -374,7 +410,8 @@ void BookManager::modify(std::string str, int i) {
         mapofAuthor.remove(bookselected.Author, bookselected);
         mapofName.remove(bookselected.BookName, bookselected);
         try {
-            double new_price = std::stod(str);
+            double new__price = std::stod(str);
+            float new_price = (float) new__price;
             bookselected.Price = new_price;
             mapofISBN.insert(bookselected.isbn.Info, bookselected);
             mapofAuthor.insert(bookselected.Author, bookselected);

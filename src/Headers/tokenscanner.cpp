@@ -65,7 +65,6 @@ const std::vector<std::string>& TokenScanner::getTokens() const {
 std::string TokenScanner::getCommand() const {
     if (tokens.empty()) {
         throw Error();
-        return;
     } else {
         return tokens[0];
     }

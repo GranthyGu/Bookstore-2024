@@ -307,6 +307,7 @@ public:
                 std::vector<Node> values(hn.size);
                 File_v.seekg(hn.addrofvalues);
                 File_v.read(reinterpret_cast<char*>(values.data()), sizeof(Node) * hn.size);
+                std::cout << (values[0].value == value) << std::endl;
                 auto it = find(values.begin(), values.end(), tmpp);
                 if (it == values.end()) {
                     return;

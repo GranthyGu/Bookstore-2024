@@ -11,12 +11,15 @@ Account::Account() : Privilege(-1) {
     std::memset(Password, 0, sizeof(Password));
     std::memset(Username, 0, sizeof(Username));
 }
-Account::Account(std::string ID) : Privilege(-1) {
+Account::Account(std::string ID) : Privilege(1) {
     if (ID.length() > 30) {
         throw Error();
     } else {
         for (int i = 0; i < ID.length(); i++) {
             UserID[i] = ID[i];
+        }
+        for (int i = ID.length(); i < 30; i++) {
+            UserID[i] = '\0';
         }
     }
 }
@@ -27,11 +30,23 @@ Account::Account(std::string ID, std::string password, std::string username) : P
     for (int i = 0; i < ID.length(); i++) {
         UserID[i] = ID[i];
     }
+    for (int i = ID.length(); i < 30; i++)
+    {
+        UserID[i] = '\0';
+    }
     for (int i = 0; i < password.length(); i++) {
         Password[i] = password[i];
     }
+    for (int i = password.length(); i < 30; i++)
+    {
+        Password[i] = '\0';
+    }
     for (int i = 0; i < username.length(); i++) {
         Username[i] = username[i];
+    }
+    for (int i = username.length(); i < 30; i++)
+    {
+        Username[i] = '\0';
     }
 }
 Account::Account(std::string ID, std::string password, std::string username, int pri) : Privilege(pri) {
@@ -41,11 +56,23 @@ Account::Account(std::string ID, std::string password, std::string username, int
     for (int i = 0; i < ID.length(); i++) {
         UserID[i] = ID[i];
     }
+    for (int i = ID.length(); i < 30; i++)
+    {
+        UserID[i] = '\0';
+    }
     for (int i = 0; i < password.length(); i++) {
         Password[i] = password[i];
     }
+    for (int i = password.length(); i < 30; i++)
+    {
+        Password[i] = '\0';
+    }
     for (int i = 0; i < username.length(); i++) {
         Username[i] = username[i];
+    }
+    for (int i = username.length(); i < 30; i++)
+    {
+        Username[i] = '\0';
     }
 }
 bool Account::operator<(const Account& other) {
@@ -88,13 +115,14 @@ tmpAccount::tmpAccount(Account a) : ac(a), selected(false) {}
 AccountManagement::AccountManagement() : cur_privilege(7) {
     mapofUserID.set_file_names("File_of_UserID", "File_of_UserID_");
     mapofUserID.openfile();
+}
+void AccountManagement::AcInitial() {
     Account manager("root", "sjtu", "root", 7);
-    tmpAccount managertmp(manager);
-    log_in_list.push(manager);
     mapofUserID.insert("root", manager);
+    return;
 }
 void AccountManagement::su(std::string ID) {
-    if (log_in_list.empty()) {
+    if (log_in_list.empty() || ID.length() > 30) {
         throw Error();
         return;
     }
@@ -115,6 +143,13 @@ void AccountManagement::su(std::string ID) {
     }
 }
 void AccountManagement::su(std::string ID, std::string password) {
+    if (ID.length() > 30 || password.length() > 30) {
+        throw Error();
+        return;
+    }
+    for (int i = password.length(); i < 30; i++) {
+        password += '\0';
+    }
     Account certain(ID);
     Node<Account> tmp(ID, certain);
     std::vector<Node<Account>> outcome = mapofUserID.Find(tmp, tmp);

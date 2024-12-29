@@ -43,6 +43,15 @@
         "variant": "cpp",
         "vector": "cpp",
         "algorithm": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "__hash_table": "cpp",
+        "__node_handle": "cpp",
+        "complex": "cpp",
+        "deque": "cpp",
+        "optional": "cpp",
+        "sstream": "cpp",
+        "stack": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }

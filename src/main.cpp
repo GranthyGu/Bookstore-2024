@@ -17,9 +17,12 @@
 #include "Headers/tokenscanner.hpp"
 
 int main() {
+    // freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
+	// freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
+    AM.AcInitial();
     LogManagement LM;
     BM.setLogManagement(LM);
     while (true) {
@@ -32,7 +35,7 @@ int main() {
                 break;
             }
             if (scanner.getCommand() == "su") {
-                if (scanner.tokens.size() != 2 || scanner.tokens.size() != 3) {
+                if (scanner.tokens.size() != 2 && scanner.tokens.size() != 3) {
                     throw Error();
                     continue;
                 }
@@ -76,7 +79,7 @@ int main() {
                 continue;
             }
             if (scanner.getCommand() == "passwd") {
-                if (scanner.tokens.size() != 4 || scanner.tokens.size() != 3) {
+                if (scanner.tokens.size() != 4 && scanner.tokens.size() != 3) {
                     throw Error();
                     continue;
                 }
@@ -204,7 +207,6 @@ int main() {
                     if (scanner.tokens[i] == "ISBN") {
                         if (ISBNmodify) {
                             throw Error();
-                            return;
                         }
                         i++;
                         BM.modify(scanner.tokens[i], 0);
@@ -213,7 +215,6 @@ int main() {
                     if (scanner.tokens[i] == "name") {
                         if (NAMEmodify) {
                             throw Error();
-                            return;
                         }
                         i++;
                         BM.modify(scanner.tokens[i], 1);
@@ -222,7 +223,6 @@ int main() {
                     if (scanner.tokens[i] == "author") {
                         if (AUTHORmodify) {
                             throw Error();
-                            return;
                         }
                         i++;
                         BM.modify(scanner.tokens[i], 2);
@@ -231,7 +231,6 @@ int main() {
                     if (scanner.tokens[i] == "keyword") {
                         if (KEYWORDmodify) {
                             throw Error();
-                            return;
                         }
                         i++;
                         BM.modify(scanner.tokens[i], 3);
@@ -240,7 +239,6 @@ int main() {
                     if (scanner.tokens[i] == "price") {
                         if (PRICEmodify) {
                             throw Error();
-                            return;
                         }
                         i++;
                         BM.modify(scanner.tokens[i], 4);
@@ -264,8 +262,8 @@ int main() {
             throw Error();
             continue;
         }
-        catch(const std::exception& e) {
-            std::cerr << e.what() << '\n';
+        catch(const Error& e) {
+            std::cout << "Invalid" << std::endl;
         }
     }
 }

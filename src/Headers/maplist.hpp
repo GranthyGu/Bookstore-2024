@@ -17,6 +17,7 @@
 #include <climits>
 #include <string>
 #include <algorithm>
+#include "error.hpp"
 
 const int maxN = 600;
 
@@ -34,11 +35,14 @@ public:
     T value;
     Node() {}
     Node(std::string str, T value) : value(value) {
+        if (str.length() > 60) {
+            throw Error();
+            return;
+        }
         for (int i = 0; i < str.length(); i++) {
             index[i] = str[i];
         }
-        for (int i = str.length(); i < 60; i++)
-        {
+        for (int i = str.length(); i < 60; i++) {
             index[i] = '\0';
         }
     }
@@ -211,7 +215,7 @@ public:
                 Node<T> t;
                 t.writetofile(File_v);
             }
-            } else {
+        } else {
             File_h.seekg(0, std::ios::beg);
             Node<T> tmpp(index, value);
             bool found = false;

@@ -46,9 +46,10 @@ class AccountManagement {
 private:
     maplist<Account> mapofUserID;
 public:
-std::stack<tmpAccount> log_in_list;
+    std::stack<tmpAccount> log_in_list;
     int cur_privilege;
     AccountManagement();
+    void AcInitial();
     void su(std::string ID);
     void su(std::string ID, std::string password);
     void logout();
