@@ -50,7 +50,7 @@ public:
     char Author[60];
     char Keyword[60];
     int Inventory;
-    float Price;
+    int Price;
     Book();
     Book(ISBN isbn);
     Book(std::string str);
@@ -61,12 +61,6 @@ public:
     Book& operator=(const Book& other);
 };
 
-struct bbb {
-    char ooo[256];
-    char iii[100];
-    int i;
-    double t;
-};
 /*
  * class BookManager:
  * This class saves several maps.

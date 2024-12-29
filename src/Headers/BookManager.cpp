@@ -54,19 +54,19 @@ ISBN& ISBN::operator=(const ISBN& other) {
     return *this;
 }
 
-Book::Book() : Inventory(0), Price(0.0) {
+Book::Book() : Inventory(0), Price(0) {
     memset(BookName, 0, sizeof(BookName));
     memset(Author, 0, sizeof(Author));
     memset(Keyword, 0, sizeof(Keyword));
 }
 
-Book::Book(ISBN isbn) : isbn(isbn), Inventory(0), Price(0.0) {
+Book::Book(ISBN isbn) : isbn(isbn), Inventory(0), Price(0) {
     memset(BookName, 0, sizeof(BookName));
     memset(Author, 0, sizeof(Author));
     memset(Keyword, 0, sizeof(Keyword));
 }
 
-Book::Book(std::string str) : isbn(str), Inventory(0), Price(0.0) {
+Book::Book(std::string str) : isbn(str), Inventory(0), Price(0) {
     memset(BookName, 0, sizeof(BookName));
     memset(Author, 0, sizeof(Author));
     memset(Keyword, 0, sizeof(Keyword));
@@ -148,8 +148,9 @@ void BookManager::Show() {
     for (int i = 0; i < tmp.size(); i++) {
         std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
         << tmp[i].value.Keyword << "\t";
+        double divi = (double)tmp[i].value.Price / 100.0;
         std::cout << std::fixed << std::setprecision(2);
-        std::cout << tmp[i].value.Price << "\t";
+        std::cout << divi << "\t";
         std::cout << std::fixed << std::setprecision(0);
         std::cout << tmp[i].value.Inventory;
         std::cout << "\n";
@@ -175,8 +176,9 @@ void BookManager::show(std::string str, int i) {
         for (int i = 0; i < tmp.size(); i++) {
             std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
             << tmp[i].value.Keyword << "\t";
+            double divi = (double)tmp[i].value.Price / 100.0;
             std::cout << std::fixed << std::setprecision(2);
-            std::cout << tmp[i].value.Price << "\t";
+            std::cout << divi << "\t";
             std::cout << std::fixed << std::setprecision(0);
             std::cout << tmp[i].value.Inventory;
         }
@@ -278,9 +280,9 @@ void BookManager::buy(std::string str, std::string quant) {
                 return;
             } else {
                 item.Inventory -= quantity;
-                float total = (float)quantity * item.Price;
+                int total = quantity * item.Price;
                 std::cout << std::fixed << std::setprecision(2);
-                std::cout << total << "\n";
+                std::cout << (double)total / 100.00 << "\n";
                 LM.addinfo(total);
             }
             mapofISBN.insert(str, item);
@@ -453,8 +455,7 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         try {
-            double new__price = std::stod(str);
-            float new_price = (float) new__price;
+            int new_price = static_cast<int>(std::round(std::stof(str) * 100));
             Book bkk(bookselected_);
             std::string string_of_isbn;
             for (int i = 0; i < 20; i++) {
