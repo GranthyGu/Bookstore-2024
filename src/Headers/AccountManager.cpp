@@ -7,9 +7,9 @@
 #include "AccountManager.hpp"
 
 Account::Account() : Privilege(-1) {
-    std::memset(UserID, 0, sizeof(UserID));
-    std::memset(Password, 0, sizeof(Password));
-    std::memset(Username, 0, sizeof(Username));
+    memset(UserID, 0, sizeof(UserID));
+    memset(Password, 0, sizeof(Password));
+    memset(Username, 0, sizeof(Username));
 }
 Account::Account(std::string ID) : Privilege(1) {
     if (ID.length() > 30) {
@@ -219,7 +219,7 @@ void AccountManagement::passwd(std::string ID, std::string new_password) {
             return;
         }
         mapofUserID.remove(ID, outcome[0].value);
-        std::memset(outcome[0].value.Password, 0, sizeof(outcome[0].value.Password));
+        memset(outcome[0].value.Password, 0, sizeof(outcome[0].value.Password));
         for (int i = 0; i < new_password.length(); i++) {
             outcome[0].value.Password[i] = new_password[i];
         }
@@ -247,7 +247,7 @@ void AccountManagement::passwd(std::string ID, std::string password, std::string
             return;
         }
         mapofUserID.remove(ID, outcome[0].value);
-        std::memset(outcome[0].value.Password, 0, sizeof(outcome[0].value.Password));
+        memset(outcome[0].value.Password, 0, sizeof(outcome[0].value.Password));
         for (int i = 0; i < new_password.length(); i++) {
             outcome[0].value.Password[i] = new_password[i];
         }

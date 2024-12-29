@@ -7,7 +7,7 @@
 #include "BookManager.hpp"
 
 ISBN::ISBN() {
-    std::memset(Info, 0, sizeof(Info));
+    memset(Info, 0, sizeof(Info));
 }
 
 ISBN::ISBN(std::string str) {
@@ -55,21 +55,21 @@ ISBN& ISBN::operator=(const ISBN& other) {
 }
 
 Book::Book() : Inventory(0), Price(0.0) {
-    std::memset(BookName, 0, sizeof(BookName));
-    std::memset(Author, 0, sizeof(Author));
-    std::memset(Keyword, 0, sizeof(Keyword));
+    memset(BookName, 0, sizeof(BookName));
+    memset(Author, 0, sizeof(Author));
+    memset(Keyword, 0, sizeof(Keyword));
 }
 
 Book::Book(ISBN isbn) : isbn(isbn), Inventory(0), Price(0.0) {
-    std::memset(BookName, 0, sizeof(BookName));
-    std::memset(Author, 0, sizeof(Author));
-    std::memset(Keyword, 0, sizeof(Keyword));
+    memset(BookName, 0, sizeof(BookName));
+    memset(Author, 0, sizeof(Author));
+    memset(Keyword, 0, sizeof(Keyword));
 }
 
 Book::Book(std::string str) : isbn(str), Inventory(0), Price(0.0) {
-    std::memset(BookName, 0, sizeof(BookName));
-    std::memset(Author, 0, sizeof(Author));
-    std::memset(Keyword, 0, sizeof(Keyword));
+    memset(BookName, 0, sizeof(BookName));
+    memset(Author, 0, sizeof(Author));
+    memset(Keyword, 0, sizeof(Keyword));
 }
 
 std::vector<std::string> Book::scanKeywords(std::string str) {
@@ -368,7 +368,7 @@ void BookManager::modify(std::string str, int i) {
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
         mapofAuthor.remove(bookselected.Author, bookselected);
         mapofName.remove(bookselected.BookName, bookselected);
-        std::memset(bookselected.BookName, 0, sizeof(bookselected.BookName));
+        memset(bookselected.BookName, 0, sizeof(bookselected.BookName));
         for (int i = 0; i < str.length(); i++) {
             bookselected.BookName[i] = str[i];
         }
@@ -384,7 +384,7 @@ void BookManager::modify(std::string str, int i) {
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
         mapofAuthor.remove(bookselected.Author, bookselected);
         mapofName.remove(bookselected.BookName, bookselected);
-        std::memset(bookselected.Author, 0, sizeof(bookselected.Author));
+        memset(bookselected.Author, 0, sizeof(bookselected.Author));
         for (int i = 0; i < str.length(); i++) {
             bookselected.Author[i] = str[i];
         }

@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <stack>
 #include <unordered_map>
 #include "maplist.hpp"

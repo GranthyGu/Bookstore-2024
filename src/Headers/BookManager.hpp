@@ -15,6 +15,7 @@
 #include <string>
 #include <iomanip>
 #include <unordered_set>
+#include <cstring>
 #include "maplist.hpp"
 #include "error.hpp"
 #include "LogManager.hpp"
