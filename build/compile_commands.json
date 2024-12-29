@@ -7,8 +7,32 @@
 },
 {
   "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
-  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp",
-  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp",
-  "output": "CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o"
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o"
+},
+{
+  "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o"
+},
+{
+  "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o"
+},
+{
+  "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o"
+},
+{
+  "directory": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/MapListTest.dir/src/main.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp",
+  "file": "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp",
+  "output": "CMakeFiles/MapListTest.dir/src/main.cpp.o"
 }
 ]

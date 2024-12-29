@@ -129,6 +129,78 @@ MapListTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/build
 .PHONY : MapListTest/fast
 
+src/Headers/AccountManager.o: src/Headers/AccountManager.cpp.o
+.PHONY : src/Headers/AccountManager.o
+
+# target to build an object file
+src/Headers/AccountManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o
+.PHONY : src/Headers/AccountManager.cpp.o
+
+src/Headers/AccountManager.i: src/Headers/AccountManager.cpp.i
+.PHONY : src/Headers/AccountManager.i
+
+# target to preprocess a source file
+src/Headers/AccountManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.i
+.PHONY : src/Headers/AccountManager.cpp.i
+
+src/Headers/AccountManager.s: src/Headers/AccountManager.cpp.s
+.PHONY : src/Headers/AccountManager.s
+
+# target to generate assembly for a file
+src/Headers/AccountManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.s
+.PHONY : src/Headers/AccountManager.cpp.s
+
+src/Headers/BookManager.o: src/Headers/BookManager.cpp.o
+.PHONY : src/Headers/BookManager.o
+
+# target to build an object file
+src/Headers/BookManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o
+.PHONY : src/Headers/BookManager.cpp.o
+
+src/Headers/BookManager.i: src/Headers/BookManager.cpp.i
+.PHONY : src/Headers/BookManager.i
+
+# target to preprocess a source file
+src/Headers/BookManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.i
+.PHONY : src/Headers/BookManager.cpp.i
+
+src/Headers/BookManager.s: src/Headers/BookManager.cpp.s
+.PHONY : src/Headers/BookManager.s
+
+# target to generate assembly for a file
+src/Headers/BookManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.s
+.PHONY : src/Headers/BookManager.cpp.s
+
+src/Headers/LogManager.o: src/Headers/LogManager.cpp.o
+.PHONY : src/Headers/LogManager.o
+
+# target to build an object file
+src/Headers/LogManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o
+.PHONY : src/Headers/LogManager.cpp.o
+
+src/Headers/LogManager.i: src/Headers/LogManager.cpp.i
+.PHONY : src/Headers/LogManager.i
+
+# target to preprocess a source file
+src/Headers/LogManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.i
+.PHONY : src/Headers/LogManager.cpp.i
+
+src/Headers/LogManager.s: src/Headers/LogManager.cpp.s
+.PHONY : src/Headers/LogManager.s
+
+# target to generate assembly for a file
+src/Headers/LogManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.s
+.PHONY : src/Headers/LogManager.cpp.s
+
 src/Headers/error.o: src/Headers/error.cpp.o
 .PHONY : src/Headers/error.o
 
@@ -153,29 +225,53 @@ src/Headers/error.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/error.cpp.s
 .PHONY : src/Headers/error.cpp.s
 
-src/Headers/test.o: src/Headers/test.cpp.o
-.PHONY : src/Headers/test.o
+src/Headers/tokenscanner.o: src/Headers/tokenscanner.cpp.o
+.PHONY : src/Headers/tokenscanner.o
 
 # target to build an object file
-src/Headers/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o
-.PHONY : src/Headers/test.cpp.o
+src/Headers/tokenscanner.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o
+.PHONY : src/Headers/tokenscanner.cpp.o
 
-src/Headers/test.i: src/Headers/test.cpp.i
-.PHONY : src/Headers/test.i
+src/Headers/tokenscanner.i: src/Headers/tokenscanner.cpp.i
+.PHONY : src/Headers/tokenscanner.i
 
 # target to preprocess a source file
-src/Headers/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/test.cpp.i
-.PHONY : src/Headers/test.cpp.i
+src/Headers/tokenscanner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.i
+.PHONY : src/Headers/tokenscanner.cpp.i
 
-src/Headers/test.s: src/Headers/test.cpp.s
-.PHONY : src/Headers/test.s
+src/Headers/tokenscanner.s: src/Headers/tokenscanner.cpp.s
+.PHONY : src/Headers/tokenscanner.s
 
 # target to generate assembly for a file
-src/Headers/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/test.cpp.s
-.PHONY : src/Headers/test.cpp.s
+src/Headers/tokenscanner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.s
+.PHONY : src/Headers/tokenscanner.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -186,12 +282,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MapListTest"
+	@echo "... src/Headers/AccountManager.o"
+	@echo "... src/Headers/AccountManager.i"
+	@echo "... src/Headers/AccountManager.s"
+	@echo "... src/Headers/BookManager.o"
+	@echo "... src/Headers/BookManager.i"
+	@echo "... src/Headers/BookManager.s"
+	@echo "... src/Headers/LogManager.o"
+	@echo "... src/Headers/LogManager.i"
+	@echo "... src/Headers/LogManager.s"
 	@echo "... src/Headers/error.o"
 	@echo "... src/Headers/error.i"
 	@echo "... src/Headers/error.s"
-	@echo "... src/Headers/test.o"
-	@echo "... src/Headers/test.i"
-	@echo "... src/Headers/test.s"
+	@echo "... src/Headers/tokenscanner.o"
+	@echo "... src/Headers/tokenscanner.i"
+	@echo "... src/Headers/tokenscanner.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
