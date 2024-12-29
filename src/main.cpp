@@ -17,8 +17,8 @@
 #include "Headers/tokenscanner.hpp"
 
 int main() {
-    freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
-	freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
+    // freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
+	// freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
