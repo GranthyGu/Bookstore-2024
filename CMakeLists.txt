@@ -3,7 +3,7 @@ project(MapListTest)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(MapListTest
+add_executable(code
         src/Headers/error.cpp
         src/Headers/BookManager.cpp
         src/Headers/LogManager.cpp

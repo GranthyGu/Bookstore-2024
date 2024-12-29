@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MapListTest"
+			"path" : "code"
 		}
 	],
 	"backtrace" : 1,
@@ -58,7 +58,7 @@
 			]
 		}
 	],
-	"id" : "MapListTest::@6890427a1f51a3e7e1df",
+	"id" : "code::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -74,8 +74,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "MapListTest",
-	"nameOnDisk" : "MapListTest",
+	"name" : "code",
+	"nameOnDisk" : "code",
 	"paths" : 
 	{
 		"build" : ".",

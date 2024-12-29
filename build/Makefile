@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MapListTest
+# Target rules for targets named code
 
 # Build rule for target.
-MapListTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MapListTest
-.PHONY : MapListTest
+code: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 code
+.PHONY : code
 
 # fast build rule for target.
-MapListTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/build
-.PHONY : MapListTest/fast
+code/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/build
+.PHONY : code/fast
 
 src/Headers/AccountManager.o: src/Headers/AccountManager.cpp.o
 .PHONY : src/Headers/AccountManager.o
 
 # target to build an object file
 src/Headers/AccountManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o
 .PHONY : src/Headers/AccountManager.cpp.o
 
 src/Headers/AccountManager.i: src/Headers/AccountManager.cpp.i
@@ -142,7 +142,7 @@ src/Headers/AccountManager.i: src/Headers/AccountManager.cpp.i
 
 # target to preprocess a source file
 src/Headers/AccountManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/AccountManager.cpp.i
 .PHONY : src/Headers/AccountManager.cpp.i
 
 src/Headers/AccountManager.s: src/Headers/AccountManager.cpp.s
@@ -150,7 +150,7 @@ src/Headers/AccountManager.s: src/Headers/AccountManager.cpp.s
 
 # target to generate assembly for a file
 src/Headers/AccountManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/AccountManager.cpp.s
 .PHONY : src/Headers/AccountManager.cpp.s
 
 src/Headers/BookManager.o: src/Headers/BookManager.cpp.o
@@ -158,7 +158,7 @@ src/Headers/BookManager.o: src/Headers/BookManager.cpp.o
 
 # target to build an object file
 src/Headers/BookManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/BookManager.cpp.o
 .PHONY : src/Headers/BookManager.cpp.o
 
 src/Headers/BookManager.i: src/Headers/BookManager.cpp.i
@@ -166,7 +166,7 @@ src/Headers/BookManager.i: src/Headers/BookManager.cpp.i
 
 # target to preprocess a source file
 src/Headers/BookManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/BookManager.cpp.i
 .PHONY : src/Headers/BookManager.cpp.i
 
 src/Headers/BookManager.s: src/Headers/BookManager.cpp.s
@@ -174,7 +174,7 @@ src/Headers/BookManager.s: src/Headers/BookManager.cpp.s
 
 # target to generate assembly for a file
 src/Headers/BookManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/BookManager.cpp.s
 .PHONY : src/Headers/BookManager.cpp.s
 
 src/Headers/LogManager.o: src/Headers/LogManager.cpp.o
@@ -182,7 +182,7 @@ src/Headers/LogManager.o: src/Headers/LogManager.cpp.o
 
 # target to build an object file
 src/Headers/LogManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/LogManager.cpp.o
 .PHONY : src/Headers/LogManager.cpp.o
 
 src/Headers/LogManager.i: src/Headers/LogManager.cpp.i
@@ -190,7 +190,7 @@ src/Headers/LogManager.i: src/Headers/LogManager.cpp.i
 
 # target to preprocess a source file
 src/Headers/LogManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/LogManager.cpp.i
 .PHONY : src/Headers/LogManager.cpp.i
 
 src/Headers/LogManager.s: src/Headers/LogManager.cpp.s
@@ -198,7 +198,7 @@ src/Headers/LogManager.s: src/Headers/LogManager.cpp.s
 
 # target to generate assembly for a file
 src/Headers/LogManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/LogManager.cpp.s
 .PHONY : src/Headers/LogManager.cpp.s
 
 src/Headers/error.o: src/Headers/error.cpp.o
@@ -206,7 +206,7 @@ src/Headers/error.o: src/Headers/error.cpp.o
 
 # target to build an object file
 src/Headers/error.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/error.cpp.o
 .PHONY : src/Headers/error.cpp.o
 
 src/Headers/error.i: src/Headers/error.cpp.i
@@ -214,7 +214,7 @@ src/Headers/error.i: src/Headers/error.cpp.i
 
 # target to preprocess a source file
 src/Headers/error.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/error.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/error.cpp.i
 .PHONY : src/Headers/error.cpp.i
 
 src/Headers/error.s: src/Headers/error.cpp.s
@@ -222,7 +222,7 @@ src/Headers/error.s: src/Headers/error.cpp.s
 
 # target to generate assembly for a file
 src/Headers/error.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/error.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/error.cpp.s
 .PHONY : src/Headers/error.cpp.s
 
 src/Headers/tokenscanner.o: src/Headers/tokenscanner.cpp.o
@@ -230,7 +230,7 @@ src/Headers/tokenscanner.o: src/Headers/tokenscanner.cpp.o
 
 # target to build an object file
 src/Headers/tokenscanner.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o
 .PHONY : src/Headers/tokenscanner.cpp.o
 
 src/Headers/tokenscanner.i: src/Headers/tokenscanner.cpp.i
@@ -238,7 +238,7 @@ src/Headers/tokenscanner.i: src/Headers/tokenscanner.cpp.i
 
 # target to preprocess a source file
 src/Headers/tokenscanner.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.i
 .PHONY : src/Headers/tokenscanner.cpp.i
 
 src/Headers/tokenscanner.s: src/Headers/tokenscanner.cpp.s
@@ -246,7 +246,7 @@ src/Headers/tokenscanner.s: src/Headers/tokenscanner.cpp.s
 
 # target to generate assembly for a file
 src/Headers/tokenscanner.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.s
 .PHONY : src/Headers/tokenscanner.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -254,7 +254,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -262,7 +262,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -270,7 +270,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MapListTest.dir/build.make CMakeFiles/MapListTest.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/code.dir/build.make CMakeFiles/code.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -281,7 +281,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MapListTest"
+	@echo "... code"
 	@echo "... src/Headers/AccountManager.o"
 	@echo "... src/Headers/AccountManager.i"
 	@echo "... src/Headers/AccountManager.s"
