@@ -83,7 +83,7 @@ private:
     maplist<ISBN> mapofAuthor;
     maplist<ISBN> mapofKeywords;
 public:
-    Book bookselected;
+    ISBN bookselected_;
     bool selected;
     LogManagement LM;
     BookManager();

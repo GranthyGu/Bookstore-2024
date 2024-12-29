@@ -17,8 +17,8 @@
 #include "Headers/tokenscanner.hpp"
 
 int main() {
-    // freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
-	// freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
+    freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
+	freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
@@ -30,6 +30,9 @@ int main() {
             std::string str;
             if (!getline(std::cin, str)) {
                 break;
+            }
+            if (str.empty()) {
+                continue;
             }
             scanner.set_input(str);
             scanner.scan();
@@ -45,13 +48,13 @@ int main() {
                     AM.su(scanner.tokens[1]);
                     BM.selected = false;
                     Book tmp;
-                    BM.bookselected = tmp;
+                    BM.bookselected_ = tmp.isbn;
                 }
                 if (scanner.tokens.size() == 3) {
                     AM.su(scanner.tokens[1], scanner.tokens[2]);
                     BM.selected = false;
                     Book tmp;
-                    BM.bookselected = tmp;
+                    BM.bookselected_ = tmp.isbn;
                 }
                 continue;
             }
@@ -64,12 +67,12 @@ int main() {
                 if (AM.cur_privilege == -1) {
                     BM.selected = false;
                     Book tmp;
-                    BM.bookselected = tmp;
+                    BM.bookselected_ = tmp.isbn;
                     continue;
                 }
                 tmpAccount tmp = AM.log_in_list.top();
                 BM.selected = tmp.selected;
-                BM.bookselected = tmp.book_selected;
+                BM.bookselected_ = tmp.book_selected;
                 continue;
             }
             if (scanner.getCommand() == "register") {
@@ -194,7 +197,7 @@ int main() {
                 }
                 BM.select(scanner.tokens[1]);
                 tmpAccount tmp = AM.log_in_list.top();
-                tmp.book_selected = BM.bookselected;
+                tmp.book_selected = BM.bookselected_;
                 tmp.selected = BM.selected;
                 AM.log_in_list.pop();
                 AM.log_in_list.push(tmp);
@@ -217,6 +220,24 @@ int main() {
                             throw Error();
                         }
                         i++;
+                        if (!BM.selected) {
+                            throw Error();
+                        }
+                        ISBN bb = BM.bookselected_;
+                        ISBN ii(scanner.tokens[i]);
+                        std::stack<tmpAccount> tempStack;
+                        bool found = false;
+                        while (!AM.log_in_list.empty()) {
+                            if (AM.log_in_list.top().book_selected == bb) {
+                                AM.log_in_list.top().book_selected = ii;
+                            }
+                            tempStack.push(AM.log_in_list.top());
+                            AM.log_in_list.pop();
+                        }
+                        while (!tempStack.empty()) {
+                            AM.log_in_list.push(tempStack.top());
+                            tempStack.pop();
+                        }
                         BM.modify(scanner.tokens[i], 0);
                         ISBNmodify = true;
                         continue;

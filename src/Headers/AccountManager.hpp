@@ -38,7 +38,7 @@ public:
 struct tmpAccount {
     Account ac;
     bool selected;
-    Book book_selected;
+    ISBN book_selected;
     tmpAccount();
     tmpAccount(Account a);
 };
