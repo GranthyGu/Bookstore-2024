@@ -361,6 +361,7 @@ void BookManager::modify(std::string str, int i) {
         }
         ISBN new_isbn(str);
         bookselected.isbn = new_isbn;
+        bookselected_ = new_isbn;
         mapofISBN.insert(str, bookselected);
         mapofAuthor.insert(bookselected.Author, bookselected.isbn);
         mapofName.insert(bookselected.BookName, bookselected.isbn);
