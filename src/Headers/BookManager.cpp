@@ -113,6 +113,13 @@ bool Book::operator==(const Book& other) const {
 }
 Book& Book::operator=(const Book& other) {
     isbn = other.isbn;
+    for (int i = 0; i < 60; i++) {
+        BookName[i] = other.BookName[i];
+        Author[i] = other.Author[i];
+        Keyword[i] = other.Keyword[i];
+    }
+    Inventory = other.Inventory;
+    Price = other.Price;
     return *this;
 }
 
@@ -145,8 +152,11 @@ void BookManager::Show() {
         std::cout << tmp[i].value.Price << "\t";
         std::cout << std::fixed << std::setprecision(0);
         std::cout << tmp[i].value.Inventory;
+        std::cout << "\n";
     }
-    std::cout << "\n";
+    if (tmp.size() == 0) {
+        std::cout << "\n";
+    }
     return;
 }
 
@@ -264,6 +274,7 @@ void BookManager::buy(std::string str, std::string quant) {
             mapofISBN.remove(str, tmp[0].value);
             Book item = tmp[0].value;
             if (quantity > item.Inventory) {
+                mapofISBN.insert(str, item);
                 throw Error();
                 return;
             } else {
@@ -319,6 +330,13 @@ void BookManager::modify(std::string str, int i) {
             str_of_isbn += bookselected.isbn.Info[i];
         }
         if (str == str_of_isbn) {
+            throw Error();
+            return;
+        }
+        Book bk(str);
+        Node<Book> t(str, bk);
+        std::vector<Node<Book>> tt = mapofISBN.Find(t, t);
+        if (tt.size() > 0) {
             throw Error();
             return;
         }

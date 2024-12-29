@@ -28,8 +28,8 @@ double LogManagement::calcincome(int n) {
     }
     double tmp = 0;
     for (int i = 0; i < n; i++) {
-        if (Finance[i] > 0) {
-            tmp += Finance[i];
+        if (Finance[Finance.size() - 1 - i] > 0) {
+            tmp += Finance[Finance.size() - 1 - i];
         }
     }
     return tmp;
@@ -41,8 +41,8 @@ double LogManagement::calcoutcome(int n) {
     }
     double tmp = 0;
     for (int i = 0; i < n; i++) {
-        if (Finance[i] < 0) {
-            tmp += -Finance[i];
+        if (Finance[Finance.size() - 1 - i] < 0) {
+            tmp += -Finance[Finance.size() - 1 - i];
         }
     }
     return tmp;

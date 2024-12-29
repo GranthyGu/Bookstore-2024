@@ -427,3 +427,13 @@ bookstore-testcases/robust/testcase4.ans
 bookstore-testcases/robust/testcase4.in
 bookstore-testcases/robust/testcase5.ans
 bookstore-testcases/robust/testcase5.in
+build/File_of_Author
+build/File_of_ISBN
+build/File_of_Author_
+build/File_of_ISBN_
+build/File_of_Key_
+build/File_of_Key
+build/File_of_Name
+build/File_of_Name_
+build/File_of_UserID
+build/File_of_UserID_

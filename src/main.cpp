@@ -110,8 +110,13 @@ int main() {
             if (scanner.getCommand() == "show") {
                 if (scanner.tokens.size() == 1) {
                     BM.Show();
+                    continue;
                 }
                 if (scanner.tokens[1] == "finance") {
+                    if (AM.cur_privilege < 7) {
+                        throw Error();
+                        continue;
+                    }
                     if (scanner.tokens.size() == 3) {
                         int num;
                         try {
@@ -140,8 +145,9 @@ int main() {
                         throw Error();
                         continue;
                     }
+                    continue;
                 } else {
-                    if (scanner.tokens.size() != 3) {
+                    if (scanner.tokens.size() != 3 || AM.cur_privilege == -1) {
                         throw Error();
                         continue;
                     }
