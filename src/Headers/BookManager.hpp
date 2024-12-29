@@ -79,8 +79,8 @@ struct bbb {
 class BookManager {
 private:
     maplist<Book> mapofISBN;
-    maplist<Book> mapofName;
-    maplist<Book> mapofAuthor;
+    maplist<ISBN> mapofName;
+    maplist<ISBN> mapofAuthor;
     maplist<ISBN> mapofKeywords;
 public:
     Book bookselected;

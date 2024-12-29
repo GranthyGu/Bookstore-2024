@@ -188,20 +188,19 @@ void BookManager::show(std::string str, int i) {
             throw Error();
             return;
         }
-        Node<Book> minimal(str, m);
-        Node<Book> maximal(str, M);
-        std::vector<Node<Book>> tmp = mapofName.Find(maximal, minimal);
+        ISBN mm(" ");
+        ISBN MM("~~~~~~~~~~~~~~~~~~~~");
+        Node<ISBN> minimal(str, mm);
+        Node<ISBN> maximal(str, MM);
+        std::vector<Node<ISBN>> tmp = mapofName.Find(maximal, minimal);
         for (int i = 0; i < tmp.size(); i++) {
-            std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
-            << tmp[i].value.Keyword << "\t";
-            std::cout << std::fixed << std::setprecision(2);
-            std::cout << tmp[i].value.Price << "\t";
-            std::cout << std::fixed << std::setprecision(0);
-            std::cout << tmp[i].value.Inventory;
-            std::cout << "\n";
+            std::string strr;
+            for (int j = 0; j < 20; j++) {
+                strr += tmp[i].value.Info[j];
+            }
+            show(strr, 0);
         }
-        if (tmp.size() == 0)
-        {
+        if (tmp.size() == 0) {
             std::cout << "\n";
         }
         return;
@@ -211,19 +210,19 @@ void BookManager::show(std::string str, int i) {
             throw Error();
             return;
         }
-        Node<Book> minimal(str, m);
-        Node<Book> maximal(str, M);
-        std::vector<Node<Book>> tmp = mapofAuthor.Find(maximal, minimal);
+        ISBN mm(" ");
+        ISBN MM("~~~~~~~~~~~~~~~~~~~~");
+        Node<ISBN> minimal(str, mm);
+        Node<ISBN> maximal(str, MM);
+        std::vector<Node<ISBN>> tmp = mapofAuthor.Find(maximal, minimal);
         for (int i = 0; i < tmp.size(); i++) {
-            std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
-            << tmp[i].value.Keyword << "\t";
-            std::cout << std::fixed << std::setprecision(2);
-            std::cout << tmp[i].value.Price << "\t";
-            std::cout << tmp[i].value.Inventory;
-            std::cout << "\n";
+            std::string strr;
+            for (int j = 0; j < 20; j++) {
+                strr += tmp[i].value.Info[j];
+            }
+            show(strr, 0);
         }
-        if (tmp.size() == 0)
-        {
+        if (tmp.size() == 0) {
             std::cout << "\n";
         }
         return;
@@ -341,8 +340,8 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         mapofISBN.remove(str_of_isbn, bookselected);
-        mapofAuthor.remove(bookselected.Author, bookselected);
-        mapofName.remove(bookselected.BookName, bookselected);
+        mapofAuthor.remove(bookselected.Author, bookselected.isbn);
+        mapofName.remove(bookselected.BookName, bookselected.isbn);
         std::string strr;
         for (int i = 0; i < 60; i++) {
             strr += bookselected.Keyword[i];
@@ -354,8 +353,8 @@ void BookManager::modify(std::string str, int i) {
         ISBN new_isbn(str);
         bookselected.isbn = new_isbn;
         mapofISBN.insert(str, bookselected);
-        mapofAuthor.insert(bookselected.Author, bookselected);
-        mapofName.insert(bookselected.BookName, bookselected);
+        mapofAuthor.insert(bookselected.Author, bookselected.isbn);
+        mapofName.insert(bookselected.BookName, bookselected.isbn);
         for (int j = 0; j < tmp.size(); j++) {
             mapofKeywords.insert(tmp[j], bookselected.isbn);
         }
@@ -366,15 +365,13 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
-        mapofAuthor.remove(bookselected.Author, bookselected);
-        mapofName.remove(bookselected.BookName, bookselected);
+        mapofName.remove(bookselected.BookName, bookselected.isbn);
         memset(bookselected.BookName, 0, sizeof(bookselected.BookName));
         for (int i = 0; i < str.length(); i++) {
             bookselected.BookName[i] = str[i];
         }
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
-        mapofAuthor.insert(bookselected.Author, bookselected);
-        mapofName.insert(bookselected.BookName, bookselected);
+        mapofName.insert(bookselected.BookName, bookselected.isbn);
     }
     if (i == 2) {       // Author
         if (str.length() > 60) {
@@ -382,15 +379,13 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
-        mapofAuthor.remove(bookselected.Author, bookselected);
-        mapofName.remove(bookselected.BookName, bookselected);
+        mapofAuthor.remove(bookselected.Author, bookselected.isbn);
         memset(bookselected.Author, 0, sizeof(bookselected.Author));
         for (int i = 0; i < str.length(); i++) {
             bookselected.Author[i] = str[i];
         }
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
-        mapofAuthor.insert(bookselected.Author, bookselected);
-        mapofName.insert(bookselected.BookName, bookselected);
+        mapofAuthor.insert(bookselected.Author, bookselected.isbn);
     }
     if (i == 3) {       // Keyword
         if (str.length() > 60) {
@@ -398,8 +393,6 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
-        mapofAuthor.remove(bookselected.Author, bookselected);
-        mapofName.remove(bookselected.BookName, bookselected);
         std::vector<std::string> new_keyword = bookselected.scanKeywords(str);
         std::string strr;
         for (int i = 0; i < 60; i++) {
@@ -419,8 +412,6 @@ void BookManager::modify(std::string str, int i) {
             mapofKeywords.insert(new_keyword[j], bookselected.isbn);
         }
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
-        mapofAuthor.insert(bookselected.Author, bookselected);
-        mapofName.insert(bookselected.BookName, bookselected);
     }
     if (i == 4) {       //Price
         if (str.length() > 13) {
@@ -428,15 +419,11 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
-        mapofAuthor.remove(bookselected.Author, bookselected);
-        mapofName.remove(bookselected.BookName, bookselected);
         try {
             double new__price = std::stod(str);
             float new_price = (float) new__price;
             bookselected.Price = new_price;
             mapofISBN.insert(bookselected.isbn.Info, bookselected);
-            mapofAuthor.insert(bookselected.Author, bookselected);
-            mapofName.insert(bookselected.BookName, bookselected);
         }
         catch(const std::exception& e) {
             throw Error();
@@ -454,8 +441,6 @@ void BookManager::import(std::string quantity, std::string totalcost) {
         return;
     }
     mapofISBN.remove(bookselected.isbn.Info, bookselected);
-    mapofAuthor.remove(bookselected.Author, bookselected);
-    mapofName.remove(bookselected.BookName, bookselected);
     try {
         int num = std::stoi(quantity);
         double total = std::stod(totalcost);
@@ -466,8 +451,6 @@ void BookManager::import(std::string quantity, std::string totalcost) {
         LM.addinfo(-total);
         bookselected.Inventory += num;
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
-        mapofAuthor.insert(bookselected.Author, bookselected);
-        mapofName.insert(bookselected.BookName, bookselected);
     }
     catch(const std::exception& e) {
         throw Error();
