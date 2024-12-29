@@ -419,6 +419,7 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         Book bkk(bookselected_);
+        std::vector<std::string> new_keyword = bkk.scanKeywords(str);
         std::string string_of_isbn;
         for (int i = 0; i < 20; i++) {
             string_of_isbn += bookselected_.Info[i];
@@ -427,7 +428,6 @@ void BookManager::modify(std::string str, int i) {
         std::vector<Node<Book>> vector_of_book = mapofISBN.Find(node_of_book, node_of_book);
         Book bookselected = vector_of_book[0].value;
         mapofISBN.remove(bookselected.isbn.Info, bookselected);
-        std::vector<std::string> new_keyword = bookselected.scanKeywords(str);
         std::string strr;
         for (int i = 0; i < 60; i++) {
             strr += bookselected.Keyword[i];
