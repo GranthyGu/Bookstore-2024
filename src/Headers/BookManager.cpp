@@ -283,7 +283,7 @@ void BookManager::buy(std::string str, std::string quant) {
                 int total = quantity * item.Price;
                 std::cout << std::fixed << std::setprecision(2);
                 std::cout << (double)total / 100.00 << "\n";
-                LM.addinfo(total);
+                LM.addinfo((double)total / 100.00);
             }
             mapofISBN.insert(str, item);
         }
