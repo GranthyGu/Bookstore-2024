@@ -412,7 +412,10 @@ void BookManager::modify(std::string str, int i) {
         for (int k = 0; k < str.length(); k++) {
             bookselected.Keyword[k] = str[k];
         }
-        for (int j = 0; j < tmp.size(); j++) {
+        for (int k = str.length(); k < 60; k++) {
+            bookselected.Keyword[k] = '\0';
+        }
+        for (int j = 0; j < new_keyword.size(); j++) {
             mapofKeywords.insert(new_keyword[j], bookselected.isbn);
         }
         mapofISBN.insert(bookselected.isbn.Info, bookselected);

@@ -17,8 +17,8 @@
 #include "Headers/tokenscanner.hpp"
 
 int main() {
-    // freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
-	// freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
+    freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
+	freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
@@ -217,6 +217,7 @@ int main() {
                         i++;
                         BM.modify(scanner.tokens[i], 0);
                         ISBNmodify = true;
+                        continue;
                     }
                     if (scanner.tokens[i] == "name") {
                         if (NAMEmodify) {
@@ -225,6 +226,7 @@ int main() {
                         i++;
                         BM.modify(scanner.tokens[i], 1);
                         NAMEmodify = true;
+                        continue;
                     }
                     if (scanner.tokens[i] == "author") {
                         if (AUTHORmodify) {
@@ -233,6 +235,7 @@ int main() {
                         i++;
                         BM.modify(scanner.tokens[i], 2);
                         AUTHORmodify = true;
+                        continue;
                     }
                     if (scanner.tokens[i] == "keyword") {
                         if (KEYWORDmodify) {
@@ -241,6 +244,7 @@ int main() {
                         i++;
                         BM.modify(scanner.tokens[i], 3);
                         KEYWORDmodify = true;
+                        continue;
                     }
                     if (scanner.tokens[i] == "price") {
                         if (PRICEmodify) {
@@ -249,6 +253,7 @@ int main() {
                         i++;
                         BM.modify(scanner.tokens[i], 4);
                         PRICEmodify = true;
+                        continue;
                     }
                 }
                 continue;

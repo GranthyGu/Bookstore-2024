@@ -19,7 +19,7 @@
 #include <algorithm>
 #include "error.hpp"
 
-const int maxN = 600;
+const int maxN = 200;
 
 /*
  * class Node:
