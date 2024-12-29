@@ -231,6 +231,9 @@ void AccountManagement::passwd(std::string ID, std::string password, std::string
         throw Error();
         return;
     }
+    for (int i = password.length(); i < 30; i++) {
+        password += '\0';
+    }
     if (log_in_list.empty()) {
         throw Error();
         return;
@@ -242,9 +245,11 @@ void AccountManagement::passwd(std::string ID, std::string password, std::string
             throw Error();
             return;
         }
-        if (password != outcome[0].value.Password) {
-            throw Error();
-            return;
+        for (int i = 0; i < 30; i++) {
+            if (password[i] != outcome[0].value.Password[i]) {
+                throw Error();
+                return;
+            }
         }
         mapofUserID.remove(ID, outcome[0].value);
         memset(outcome[0].value.Password, 0, sizeof(outcome[0].value.Password));
