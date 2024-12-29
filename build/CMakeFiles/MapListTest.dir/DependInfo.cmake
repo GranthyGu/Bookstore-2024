@@ -8,8 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp" "CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o.d"
+  "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp" "CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o.d"
+  "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp" "CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o.d"
   "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp" "CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o.d"
-  "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp" "CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o.d"
+  "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp" "CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o.d"
+  "/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp" "CMakeFiles/MapListTest.dir/src/main.cpp.o" "gcc" "CMakeFiles/MapListTest.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -86,33 +86,97 @@ CMakeFiles/MapListTest.dir/src/Headers/error.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/Headers/error.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp -o CMakeFiles/MapListTest.dir/src/Headers/error.cpp.s
 
-CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o: CMakeFiles/MapListTest.dir/flags.make
-CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp
-CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o: CMakeFiles/MapListTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o -MF CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o.d -o CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp
+CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o: CMakeFiles/MapListTest.dir/flags.make
+CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp
+CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o: CMakeFiles/MapListTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o -MF CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o.d -o CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp
 
-CMakeFiles/MapListTest.dir/src/Headers/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MapListTest.dir/src/Headers/test.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp > CMakeFiles/MapListTest.dir/src/Headers/test.cpp.i
+CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp > CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.i
 
-CMakeFiles/MapListTest.dir/src/Headers/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/Headers/test.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/test.cpp -o CMakeFiles/MapListTest.dir/src/Headers/test.cpp.s
+CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp -o CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.s
+
+CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o: CMakeFiles/MapListTest.dir/flags.make
+CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp
+CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o: CMakeFiles/MapListTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o -MF CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o.d -o CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp
+
+CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp > CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.i
+
+CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp -o CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.s
+
+CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o: CMakeFiles/MapListTest.dir/flags.make
+CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp
+CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o: CMakeFiles/MapListTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o -MF CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o.d -o CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp
+
+CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp > CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.i
+
+CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp -o CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.s
+
+CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o: CMakeFiles/MapListTest.dir/flags.make
+CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp
+CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o: CMakeFiles/MapListTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o -MF CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o.d -o CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp
+
+CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp > CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.i
+
+CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp -o CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.s
+
+CMakeFiles/MapListTest.dir/src/main.cpp.o: CMakeFiles/MapListTest.dir/flags.make
+CMakeFiles/MapListTest.dir/src/main.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp
+CMakeFiles/MapListTest.dir/src/main.cpp.o: CMakeFiles/MapListTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MapListTest.dir/src/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MapListTest.dir/src/main.cpp.o -MF CMakeFiles/MapListTest.dir/src/main.cpp.o.d -o CMakeFiles/MapListTest.dir/src/main.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp
+
+CMakeFiles/MapListTest.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MapListTest.dir/src/main.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp > CMakeFiles/MapListTest.dir/src/main.cpp.i
+
+CMakeFiles/MapListTest.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MapListTest.dir/src/main.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp -o CMakeFiles/MapListTest.dir/src/main.cpp.s
 
 # Object files for target MapListTest
 MapListTest_OBJECTS = \
 "CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o" \
-"CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o"
+"CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o" \
+"CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o" \
+"CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o" \
+"CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o" \
+"CMakeFiles/MapListTest.dir/src/main.cpp.o"
 
 # External object files for target MapListTest
 MapListTest_EXTERNAL_OBJECTS =
 
 MapListTest: CMakeFiles/MapListTest.dir/src/Headers/error.cpp.o
-MapListTest: CMakeFiles/MapListTest.dir/src/Headers/test.cpp.o
+MapListTest: CMakeFiles/MapListTest.dir/src/Headers/BookManager.cpp.o
+MapListTest: CMakeFiles/MapListTest.dir/src/Headers/LogManager.cpp.o
+MapListTest: CMakeFiles/MapListTest.dir/src/Headers/tokenscanner.cpp.o
+MapListTest: CMakeFiles/MapListTest.dir/src/Headers/AccountManager.cpp.o
+MapListTest: CMakeFiles/MapListTest.dir/src/main.cpp.o
 MapListTest: CMakeFiles/MapListTest.dir/build.make
 MapListTest: CMakeFiles/MapListTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MapListTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable MapListTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MapListTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
