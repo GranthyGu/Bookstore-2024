@@ -11,16 +11,20 @@
  */
 
 #include <iostream>
+#include <string>
+#include <fstream>
 #include <vector>
 #include "error.hpp"
 
 class LogManagement {
 public:
+    std::string filename;
     std::vector<double> Finance;
     LogManagement();
     LogManagement& operator=(const LogManagement &other);
     void addinfo(double l);
     double calcincome(int n);
+    void writetofile();
     double calcoutcome(int n);
 };
 

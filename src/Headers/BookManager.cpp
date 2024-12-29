@@ -282,8 +282,8 @@ void BookManager::buy(std::string str, std::string quant) {
                 item.Inventory -= quantity;
                 int total = quantity * item.Price;
                 std::cout << std::fixed << std::setprecision(2);
-                std::cout << (double)total / 100.00 << "\n";
-                LM.addinfo((double)total / 100.00);
+                std::cout << (float)total / 100.00 << "\n";
+                LM.addinfo((float)total / 100.00);
             }
             mapofISBN.insert(str, item);
         }
@@ -489,7 +489,7 @@ void BookManager::import(std::string quantity, std::string totalcost) {
     }
     try {
         int num = std::stoi(quantity);
-        double total = std::stod(totalcost);
+        float total = std::stof(totalcost);
         if (num <= 0 || total <= 0) {
             throw Error();
             return;

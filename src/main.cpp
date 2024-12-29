@@ -17,8 +17,8 @@
 #include "Headers/tokenscanner.hpp"
 
 int main() {
-    // freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
-	// freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
+    freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
+	freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
@@ -29,6 +29,7 @@ int main() {
         try {
             std::string str;
             if (!getline(std::cin, str)) {
+                BM.LM.writetofile();
                 break;
             }
             if (str.empty()) {
@@ -37,6 +38,7 @@ int main() {
             scanner.set_input(str);
             scanner.scan();
             if (scanner.getCommand() == "quit" || scanner.getCommand() == "exit") {
+                BM.LM.writetofile();
                 break;
             }
             if (scanner.getCommand() == "su") {

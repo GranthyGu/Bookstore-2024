@@ -8,6 +8,20 @@
 
 LogManagement::LogManagement() {
     Finance.clear();
+    std::fstream tmp;
+    filename = "File_of_Log";
+    tmp.open(filename, std::ios::in | std::ios::out | std::ios::binary);
+    if (!tmp) {
+        tmp.close();
+        tmp.clear(); 
+        tmp.open(filename, std::ios::out | std::ios::binary);
+        tmp.close();
+        tmp.open(filename, std::ios::in | std::ios::out | std::ios::binary);
+    }
+    double value;
+    while (tmp.read(reinterpret_cast<char*>(&value), sizeof(double))) {
+        Finance.push_back(value);
+    }
 }
 
 LogManagement& LogManagement::operator=(const LogManagement &other) {
@@ -28,8 +42,8 @@ double LogManagement::calcincome(int n) {
     }
     double tmp = 0;
     for (int i = 0; i < n; i++) {
-        if (Finance[Finance.size() - 1 - i] > 0) {
-            tmp += Finance[Finance.size() - 1 - i];
+        if (Finance[i] > 0) {
+            tmp += Finance[i];
         }
     }
     return tmp;
@@ -41,10 +55,24 @@ double LogManagement::calcoutcome(int n) {
     }
     double tmp = 0;
     for (int i = 0; i < n; i++) {
-        if (Finance[Finance.size() - 1 - i] < 0) {
-            tmp += -Finance[Finance.size() - 1 - i];
+        if (Finance[i] < 0) {
+            tmp += -Finance[i];
         }
     }
     return tmp;
 }
 
+void LogManagement::writetofile() {
+    std::fstream tmp;
+    tmp.open(filename, std::ios::in | std::ios::out | std::ios::binary);
+    if (!tmp) {
+        tmp.close();
+        tmp.clear(); 
+        tmp.open(filename, std::ios::out | std::ios::binary);
+        tmp.close();
+        tmp.open(filename, std::ios::in | std::ios::out | std::ios::binary);
+    }
+    for (int i = 0; i < Finance.size(); i++) {
+        tmp.write(reinterpret_cast<char*>(&Finance[i]), sizeof(double));
+    }
+}
