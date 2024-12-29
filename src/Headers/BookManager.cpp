@@ -451,18 +451,18 @@ void BookManager::modify(std::string str, int i) {
             throw Error();
             return;
         }
-        Book bkk(bookselected_);
-        std::string string_of_isbn;
-        for (int i = 0; i < 20; i++) {
-            string_of_isbn += bookselected_.Info[i];
-        }
-        Node<Book> node_of_book(string_of_isbn, bkk);
-        std::vector<Node<Book>> vector_of_book = mapofISBN.Find(node_of_book, node_of_book);
-        Book bookselected = vector_of_book[0].value;
-        mapofISBN.remove(bookselected.isbn.Info, bookselected);
         try {
             double new__price = std::stod(str);
             float new_price = (float) new__price;
+            Book bkk(bookselected_);
+            std::string string_of_isbn;
+            for (int i = 0; i < 20; i++) {
+                string_of_isbn += bookselected_.Info[i];
+            }
+            Node<Book> node_of_book(string_of_isbn, bkk);
+            std::vector<Node<Book>> vector_of_book = mapofISBN.Find(node_of_book, node_of_book);
+            Book bookselected = vector_of_book[0].value;
+            mapofISBN.remove(bookselected.isbn.Info, bookselected);
             bookselected.Price = new_price;
             mapofISBN.insert(bookselected.isbn.Info, bookselected);
         }
@@ -481,15 +481,10 @@ void BookManager::import(std::string quantity, std::string totalcost) {
         throw Error();
         return;
     }
-    Book bkk(bookselected_);
     std::string string_of_isbn;
     for (int i = 0; i < 20; i++) {
         string_of_isbn += bookselected_.Info[i];
     }
-    Node<Book> node_of_book(string_of_isbn, bkk);
-    std::vector<Node<Book>> vector_of_book = mapofISBN.Find(node_of_book, node_of_book);
-    Book bookselected = vector_of_book[0].value;
-    mapofISBN.remove(bookselected.isbn.Info, bookselected);
     try {
         int num = std::stoi(quantity);
         double total = std::stod(totalcost);
@@ -497,6 +492,11 @@ void BookManager::import(std::string quantity, std::string totalcost) {
             throw Error();
             return;
         }
+        Book bkk(string_of_isbn);
+        Node<Book> node_of_book(string_of_isbn, bkk);
+        std::vector<Node<Book>> vector_of_book = mapofISBN.Find(node_of_book, node_of_book);
+        Book bookselected = vector_of_book[0].value;
+        mapofISBN.remove(bookselected.isbn.Info, bookselected);
         LM.addinfo(-total);
         bookselected.Inventory += num;
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
