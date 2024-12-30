@@ -115,6 +115,10 @@ int main() {
                 continue;
             }
             if (scanner.getCommand() == "show") {
+                if (AM.log_in_list.empty()) {
+                    throw Error();
+                    continue;
+                }
                 if (scanner.tokens.size() == 1) {
                     BM.Show();
                     continue;
@@ -136,12 +140,20 @@ int main() {
                         if (num == 0) {
                             std::cout << std::endl;
                         }
+                        if (num < 0) {
+                            throw Error();
+                            continue;
+                        }
                         double income = BM.LM.calcincome(num);
                         double outcome = BM.LM.calcoutcome(num);
                         std::cout << std::fixed << std::setprecision(2);
                         std::cout << "+ " << income << " - " << outcome << std::endl;
                     }
                     if (scanner.tokens.size() == 2) {
+                        if (scanner.tokens.size() == 0) {
+                            std::cout << std::endl;
+                            continue;
+                        }
                         int num = BM.LM.Finance.size();
                         double income = BM.LM.calcincome(num);
                         double outcome = BM.LM.calcoutcome(num);
