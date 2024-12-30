@@ -14,6 +14,17 @@ void TokenScanner::set_input(const std::string& new_input) {
     input = new_input;
 }
 
+bool TokenScanner::containsInvalidCharacters() const {
+    for (char c : input) {
+        if (c < 32 || c > 126) {
+            if (c != ' ') {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 bool TokenScanner::QuotedString(int& pos, std::string& token) {
     pos++;
     if (input[pos] == '"') {
@@ -22,6 +33,11 @@ bool TokenScanner::QuotedString(int& pos, std::string& token) {
     while (pos < input.length() && input[pos] != '"') {
         token += input[pos];
         pos++;
+    }
+    if (input[pos] == '"' && pos != input.length()) {
+        if (input[pos++] != ' ') {
+            return false;
+        }
     }
     if (pos >= input.length()) {
         return false;
@@ -71,6 +87,9 @@ std::string TokenScanner::getCommand() const {
 }
 
 bool TokenScanner::scan() {
+    if (containsInvalidCharacters()) {
+        throw Error();
+    }
     tokens.clear();
     int pos = 0;
     skipSpaces(pos);

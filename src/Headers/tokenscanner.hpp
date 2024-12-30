@@ -30,7 +30,7 @@
 class TokenScanner {
 private:
     std::string input;
-    
+    bool containsInvalidCharacters() const;
     bool QuotedString(int& pos, std::string& token);
     bool Parameter(int& pos, std::string& token);
     void skipSpaces(int& pos);

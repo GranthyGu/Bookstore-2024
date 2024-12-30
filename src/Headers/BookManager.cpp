@@ -86,6 +86,9 @@ std::vector<std::string> Book::scanKeywords(std::string str) {
         if (str[i] != '|') {
             token += str[i];
         } else {
+            if (token.empty()) {
+                throw Error();
+            }
             tmp.push_back(token);
             token.clear();
         }
