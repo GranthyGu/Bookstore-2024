@@ -206,7 +206,7 @@ int main() {
                 continue;
             }
             if (scanner.getCommand() == "modify") {
-                if (AM.cur_privilege < 3 || scanner.tokens.size() < 3) {
+                if (AM.cur_privilege < 3 || scanner.tokens.size() < 3 || scanner.tokens.size() % 2 == 0) {
                     throw Error();
                     continue;
                 }
