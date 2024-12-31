@@ -67,6 +67,9 @@ Book::Book(ISBN isbn) : isbn(isbn), Inventory(0), Price(0) {
 }
 
 Book::Book(std::string str) : isbn(str), Inventory(0), Price(0) {
+    if (str.length() > 20) {
+        throw Error();
+    }
     memset(BookName, 0, sizeof(BookName));
     memset(Author, 0, sizeof(Author));
     memset(Keyword, 0, sizeof(Keyword));
@@ -263,6 +266,10 @@ void BookManager::show(std::string str, int i) {
 
 void BookManager::buy(std::string str, std::string quant) {
     try {
+        if (quant.length() > 10) {
+            throw Error();
+            return;
+        }
         int quantity = std::stoi(quant);
         if (str.length() > 20 || quantity <= 0) {
             throw Error();
@@ -303,8 +310,7 @@ void BookManager::select(std::string str) {
         return;
     } else {
         selected = true;
-        for (int i = str.length(); i < 20; i++)
-        {
+        for (int i = str.length(); i < 20; i++) {
             str += '\0';
         }
         Book mm(str);
@@ -458,7 +464,11 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         try {
-            int new_price = static_cast<int>(std::round(std::stof(str) * 100));
+            long long new_price = static_cast<long long>(std::round(std::stof(str) * 100));
+            if (new_price <= 0) {
+                throw Error();
+                return;
+            }
             Book bkk(bookselected_);
             std::string string_of_isbn;
             for (int i = 0; i < 20; i++) {

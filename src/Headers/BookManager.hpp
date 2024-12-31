@@ -51,7 +51,7 @@ public:
     char Author[60];
     char Keyword[60];
     int Inventory;
-    int Price;
+    long long Price;
     Book();
     Book(ISBN isbn);
     Book(std::string str);
