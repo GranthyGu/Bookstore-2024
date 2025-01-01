@@ -54,19 +54,19 @@ ISBN& ISBN::operator=(const ISBN& other) {
     return *this;
 }
 
-Book::Book() : Inventory(0), Price(0) {
+Book::Book() : Inventory(0), Price1(0), Price2(0) {
     memset(BookName, 0, sizeof(BookName));
     memset(Author, 0, sizeof(Author));
     memset(Keyword, 0, sizeof(Keyword));
 }
 
-Book::Book(ISBN isbn) : isbn(isbn), Inventory(0), Price(0) {
+Book::Book(ISBN isbn) : isbn(isbn), Inventory(0), Price1(0), Price2(0) {
     memset(BookName, 0, sizeof(BookName));
     memset(Author, 0, sizeof(Author));
     memset(Keyword, 0, sizeof(Keyword));
 }
 
-Book::Book(std::string str) : isbn(str), Inventory(0), Price(0) {
+Book::Book(std::string str) : isbn(str), Inventory(0), Price1(0), Price2(0) {
     if (str.length() > 20) {
         throw Error();
     }
@@ -125,7 +125,8 @@ Book& Book::operator=(const Book& other) {
         Keyword[i] = other.Keyword[i];
     }
     Inventory = other.Inventory;
-    Price = other.Price;
+    Price1 = other.Price1;
+    Price2 = other.Price2;
     return *this;
 }
 
@@ -154,7 +155,8 @@ void BookManager::Show() {
     for (int i = 0; i < tmp.size(); i++) {
         std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
         << tmp[i].value.Keyword << "\t";
-        double divi = (double)tmp[i].value.Price / 100.0;
+        long long summ = (long long)tmp[i].value.Price1 + (long long)tmp[i].value.Price2 * INT_MAX;
+        double divi = summ / 100.0;
         std::cout << std::fixed << std::setprecision(2);
         std::cout << divi << "\t";
         std::cout << std::fixed << std::setprecision(0);
@@ -182,7 +184,8 @@ void BookManager::show(std::string str, int i) {
         for (int i = 0; i < tmp.size(); i++) {
             std::cout << tmp[i].value.isbn.Info << "\t" << tmp[i].value.BookName << "\t" << tmp[i].value.Author << "\t" 
             << tmp[i].value.Keyword << "\t";
-            double divi = (double)tmp[i].value.Price / 100.0;
+            long long summ = (long long)tmp[i].value.Price1 + (long long)tmp[i].value.Price2 * INT_MAX;
+            double divi = summ / 100.0;
             std::cout << std::fixed << std::setprecision(2);
             std::cout << divi << "\t";
             std::cout << std::fixed << std::setprecision(0);
@@ -290,10 +293,11 @@ void BookManager::buy(std::string str, std::string quant) {
                 return;
             } else {
                 item.Inventory -= quantity;
-                long long total = (long long)quantity * (long long)item.Price;
+                long long summ = (long long)item.Price1 + (long long)item.Price2 * INT_MAX;
+                long long total = (long long)quantity * summ;
                 std::cout << std::fixed << std::setprecision(2);
-                std::cout << (double)total / 100.00 << "\n";
-                LM.addinfo((double)total / 100.00);
+                std::cout << total / 100.00 << "\n";
+                LM.addinfo(total / 100.00);
             }
             mapofISBN.insert(str, item);
         }
@@ -459,12 +463,38 @@ void BookManager::modify(std::string str, int i) {
         mapofISBN.insert(bookselected.isbn.Info, bookselected);
     }
     if (i == 4) {       //Price
-        if (str.length() > 13) {
-            throw Error();
-            return;
-        }
         try {
-            int new_price = static_cast<int>(std::round(std::stof(str) * 100));
+            if (str.length() > 13) {
+                throw Error();
+            }
+            int dotCount = 0;
+            for (char ch : str) {
+                if (ch == '.') {
+                    ++dotCount;
+                }
+                if (!isdigit(ch) && ch != '.') {
+                    throw Error();
+                }
+            }
+            if (dotCount > 1) {
+                throw Error();
+            }
+            std::string integerPart, fractionalPart;
+            auto dotPos = str.find('.');
+            if (dotPos != std::string::npos) {
+                integerPart = str.substr(0, dotPos);
+                fractionalPart = str.substr(dotPos + 1);
+                if (fractionalPart.length() > 2) {
+                    throw Error();
+                }
+            } else {
+                integerPart = str;
+            }
+            while (fractionalPart.length() < 2) {
+                fractionalPart += '0';
+            }
+            std::string combined = integerPart + fractionalPart;
+            long long new_price = std::stoll(combined);
             if (new_price <= 0){
                 throw Error();
                 return;
@@ -478,7 +508,8 @@ void BookManager::modify(std::string str, int i) {
             std::vector<Node<Book>> vector_of_book = mapofISBN.Find(node_of_book, node_of_book);
             Book bookselected = vector_of_book[0].value;
             mapofISBN.remove(bookselected.isbn.Info, bookselected);
-            bookselected.Price = new_price;
+            bookselected.Price1 = new_price % INT_MAX;
+            bookselected.Price2 = new_price / INT_MAX;
             mapofISBN.insert(bookselected.isbn.Info, bookselected);
         }
         catch(const std::exception& e) {

@@ -57,7 +57,7 @@ bool TokenScanner::Parameter(int& pos, std::string& token) {
         }
         token += quotedValue;
     } else {
-        if (tokens[tokens.size() - 1] != "ISBN") {
+        if (tokens[tokens.size() - 1] != "ISBN" && tokens[tokens.size() - 1] != "price") {
             return false;
         }
         if (input[pos] == ' ') {

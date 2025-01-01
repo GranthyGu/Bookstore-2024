@@ -76,85 +76,85 @@ CMakeFiles/code.dir/src/Headers/error.cpp.o: CMakeFiles/code.dir/flags.make
 CMakeFiles/code.dir/src/Headers/error.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp
 CMakeFiles/code.dir/src/Headers/error.cpp.o: CMakeFiles/code.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/code.dir/src/Headers/error.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/error.cpp.o -MF CMakeFiles/code.dir/src/Headers/error.cpp.o.d -o CMakeFiles/code.dir/src/Headers/error.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/error.cpp.o -MF CMakeFiles/code.dir/src/Headers/error.cpp.o.d -o CMakeFiles/code.dir/src/Headers/error.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp
 
 CMakeFiles/code.dir/src/Headers/error.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/code.dir/src/Headers/error.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp > CMakeFiles/code.dir/src/Headers/error.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp > CMakeFiles/code.dir/src/Headers/error.cpp.i
 
 CMakeFiles/code.dir/src/Headers/error.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/code.dir/src/Headers/error.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp -o CMakeFiles/code.dir/src/Headers/error.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/error.cpp -o CMakeFiles/code.dir/src/Headers/error.cpp.s
 
 CMakeFiles/code.dir/src/Headers/BookManager.cpp.o: CMakeFiles/code.dir/flags.make
 CMakeFiles/code.dir/src/Headers/BookManager.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp
 CMakeFiles/code.dir/src/Headers/BookManager.cpp.o: CMakeFiles/code.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/code.dir/src/Headers/BookManager.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/BookManager.cpp.o -MF CMakeFiles/code.dir/src/Headers/BookManager.cpp.o.d -o CMakeFiles/code.dir/src/Headers/BookManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/BookManager.cpp.o -MF CMakeFiles/code.dir/src/Headers/BookManager.cpp.o.d -o CMakeFiles/code.dir/src/Headers/BookManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp
 
 CMakeFiles/code.dir/src/Headers/BookManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/code.dir/src/Headers/BookManager.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp > CMakeFiles/code.dir/src/Headers/BookManager.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp > CMakeFiles/code.dir/src/Headers/BookManager.cpp.i
 
 CMakeFiles/code.dir/src/Headers/BookManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/code.dir/src/Headers/BookManager.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp -o CMakeFiles/code.dir/src/Headers/BookManager.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/BookManager.cpp -o CMakeFiles/code.dir/src/Headers/BookManager.cpp.s
 
 CMakeFiles/code.dir/src/Headers/LogManager.cpp.o: CMakeFiles/code.dir/flags.make
 CMakeFiles/code.dir/src/Headers/LogManager.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp
 CMakeFiles/code.dir/src/Headers/LogManager.cpp.o: CMakeFiles/code.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/code.dir/src/Headers/LogManager.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/LogManager.cpp.o -MF CMakeFiles/code.dir/src/Headers/LogManager.cpp.o.d -o CMakeFiles/code.dir/src/Headers/LogManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/LogManager.cpp.o -MF CMakeFiles/code.dir/src/Headers/LogManager.cpp.o.d -o CMakeFiles/code.dir/src/Headers/LogManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp
 
 CMakeFiles/code.dir/src/Headers/LogManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/code.dir/src/Headers/LogManager.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp > CMakeFiles/code.dir/src/Headers/LogManager.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp > CMakeFiles/code.dir/src/Headers/LogManager.cpp.i
 
 CMakeFiles/code.dir/src/Headers/LogManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/code.dir/src/Headers/LogManager.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp -o CMakeFiles/code.dir/src/Headers/LogManager.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/LogManager.cpp -o CMakeFiles/code.dir/src/Headers/LogManager.cpp.s
 
 CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o: CMakeFiles/code.dir/flags.make
 CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp
 CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o: CMakeFiles/code.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o -MF CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o.d -o CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o -MF CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o.d -o CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp
 
 CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp > CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp > CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.i
 
 CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp -o CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/tokenscanner.cpp -o CMakeFiles/code.dir/src/Headers/tokenscanner.cpp.s
 
 CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o: CMakeFiles/code.dir/flags.make
 CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp
 CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o: CMakeFiles/code.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o -MF CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o.d -o CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o -MF CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o.d -o CMakeFiles/code.dir/src/Headers/AccountManager.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp
 
 CMakeFiles/code.dir/src/Headers/AccountManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/code.dir/src/Headers/AccountManager.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp > CMakeFiles/code.dir/src/Headers/AccountManager.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp > CMakeFiles/code.dir/src/Headers/AccountManager.cpp.i
 
 CMakeFiles/code.dir/src/Headers/AccountManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/code.dir/src/Headers/AccountManager.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp -o CMakeFiles/code.dir/src/Headers/AccountManager.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/Headers/AccountManager.cpp -o CMakeFiles/code.dir/src/Headers/AccountManager.cpp.s
 
 CMakeFiles/code.dir/src/main.cpp.o: CMakeFiles/code.dir/flags.make
 CMakeFiles/code.dir/src/main.cpp.o: /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp
 CMakeFiles/code.dir/src/main.cpp.o: CMakeFiles/code.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/code.dir/src/main.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/main.cpp.o -MF CMakeFiles/code.dir/src/main.cpp.o.d -o CMakeFiles/code.dir/src/main.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/code.dir/src/main.cpp.o -MF CMakeFiles/code.dir/src/main.cpp.o.d -o CMakeFiles/code.dir/src/main.cpp.o -c /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp
 
 CMakeFiles/code.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/code.dir/src/main.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp > CMakeFiles/code.dir/src/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp > CMakeFiles/code.dir/src/main.cpp.i
 
 CMakeFiles/code.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/code.dir/src/main.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp -o CMakeFiles/code.dir/src/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/guyuanxi/Desktop/C++/Bookstore-Management-2024/Bookstore-2024/src/main.cpp -o CMakeFiles/code.dir/src/main.cpp.s
 
 # Object files for target code
 code_OBJECTS = \

@@ -1,9 +1,10 @@
-su root sjtu                   
-useradd 123 123 3 123
+su root sjtu
 select 123
-su 123
-select 123
-modify -ISBN=123123
-logout
-modify -name="mmm"
+modify -price=123.99
+show
+modify -price=123123123.99
+show
+modify -price=1231231231.9
+show
+modify -price=123213213123
 show

@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <unordered_set>
 #include <cstring>
+#include <climits>
 #include <cmath>
 #include "maplist.hpp"
 #include "error.hpp"
@@ -51,7 +52,8 @@ public:
     char Author[60];
     char Keyword[60];
     int Inventory;
-    int Price;
+    int Price1;
+    int Price2;
     Book();
     Book(ISBN isbn);
     Book(std::string str);
