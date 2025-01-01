@@ -464,8 +464,8 @@ void BookManager::modify(std::string str, int i) {
             return;
         }
         try {
-            long long new_price = static_cast<long long>(std::round(std::stof(str) * 100));
-            if (new_price <= 0) {
+            int new_price = static_cast<int>(std::round(std::stof(str) * 100));
+            if (new_price <= 0){
                 throw Error();
                 return;
             }
