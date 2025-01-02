@@ -35,7 +35,7 @@ bool TokenScanner::QuotedString(int& pos, std::string& token) {
         pos++;
     }
     if (input[pos] == '"' && pos != input.length() - 1) {
-        if (input[pos++] != ' ') {
+        if (input[pos + 1] != ' ') {
             return false;
         }
     }
@@ -103,6 +103,9 @@ bool TokenScanner::scan() {
             while (pos < input.length() && input[pos] != '=' && input[pos] != ' ') {
                 token += input[pos];
                 pos++;
+            }
+            if (input[pos] == ' ' || pos == input.length()) {
+                throw Error();
             }
             tokens.push_back(token);
             token.clear();
