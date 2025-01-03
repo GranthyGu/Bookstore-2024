@@ -450,7 +450,7 @@ int main() {
                 Node<Log> maximal = mapoflog.Findmaximal();
                 std::vector<Node<Log>> tmp = mapoflog.Find(maximal, minimal);
                 for (int i = 0; i < tmp.size(); i++) {
-                    std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << std::endl;
+                    std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << " 🎗️" << std::endl;
                 }
                 continue;
             }
@@ -460,7 +460,7 @@ int main() {
                     Node<Log> maximal = mapoffinance.Findmaximal();
                     std::vector<Node<Log>> tmp = mapoffinance.Find(maximal, minimal);
                     for (int i = 0; i < tmp.size(); i++) {
-                        std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << std::endl;
+                        std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << " 🎗️" << std::endl;
                     }
                 }
                 if (scanner.tokens[1] == "employee") {
@@ -468,7 +468,7 @@ int main() {
                     Node<Log> maximal = mapofemployee.Findmaximal();
                     std::vector<Node<Log>> tmp = mapofemployee.Find(maximal, minimal);
                     for (int i = 0; i < tmp.size(); i++) {
-                        std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << std::endl;
+                        std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << " 🎗️" << std::endl;
                     }
                 }
                 continue;
