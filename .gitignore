@@ -442,3 +442,7 @@ bookstore-testcases/testcase5.in
 bookstore-testcases/testcase6.ans
 bookstore-testcases/testcase6.in
 build/File_of_Log
+build/File_of_employee
+build/File_of_employee_
+build/File_of_finance
+build/File_of_finance_
