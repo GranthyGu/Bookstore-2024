@@ -16,15 +16,54 @@
 #include "Headers/maplist.hpp"
 #include "Headers/tokenscanner.hpp"
 
+class Log {
+public:
+    int num;
+    char userID_[30];
+    char command[230];
+    Log() {}
+    Log(std::string str, int num) : num(num) {
+        for (int i = 0; i < str.length(); i++) {
+            command[i] = str[i];
+        }
+    }
+    bool operator<(const Log& other) {
+        return num < other.num;
+    }
+    bool operator>(const Log& other) {
+        return num > other.num;
+    }
+    bool operator==(const Log& other) const {
+        return num == other.num;
+    }
+    Log& operator=(const Log& other) {
+        num = other.num;
+        for (int i = 0; i < 30; i++) {
+            userID_[i] = other.userID_[i];
+        }
+        for (int i = 0; i < 230; i++) {
+            command[i] = other.command[i];
+        }
+        return *this;
+    }
+};
+
 int main() {
     // freopen("in.txt", "r", stdin);   // 读入in.dat文件作为输入 
 	// freopen("out.dat", "w", stdout);  // 将输入写入out.dat文件中 
+    maplist<Log> mapoffinance("File_of_finance", "File_of_finance_");
+    maplist<Log> mapofemployee("File_of_employee", "File_of_employee_");
+    maplist<Log> mapoflog("File_of_logs", "File_of_logs_");
+    mapoffinance.openfile();
+    mapofemployee.openfile();
+    mapoflog.openfile();
     TokenScanner scanner;
     BookManager BM;
     AccountManagement AM;
     AM.AcInitial();
     LogManagement LM;
     BM.setLogManagement(LM);
+    int num = 0;
     while (true) {
         try {
             std::string str;
@@ -35,6 +74,8 @@ int main() {
             if (str.empty()) {
                 continue;
             }
+            Log l(str, num);
+            num++;
             scanner.set_input(str);
             scanner.scan();
             if (scanner.getCommand() == "quit" || scanner.getCommand() == "exit") {
@@ -58,6 +99,7 @@ int main() {
                     Book tmp;
                     BM.bookselected_ = tmp.isbn;
                 }
+                mapoflog.insert(std::to_string(num), l);
                 continue;
             }
             if (scanner.getCommand() == "logout") {
@@ -66,6 +108,7 @@ int main() {
                     continue;
                 }
                 AM.logout();
+                mapoflog.insert(std::to_string(num), l);
                 if (AM.cur_privilege == -1) {
                     BM.selected = false;
                     Book tmp;
@@ -83,6 +126,7 @@ int main() {
                     continue;
                 }
                 AM.Register(scanner.tokens[1], scanner.tokens[2], scanner.tokens[3]);
+                mapoflog.insert(std::to_string(num), l);
                 continue;
             }
             if (scanner.getCommand() == "passwd") {
@@ -96,6 +140,13 @@ int main() {
                 if (scanner.tokens.size() == 4) {
                     AM.passwd(scanner.tokens[1], scanner.tokens[2], scanner.tokens[3]);
                 }
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
                 continue;
             }
             if (scanner.getCommand() == "useradd") {
@@ -104,6 +155,13 @@ int main() {
                     continue;
                 }
                 AM.useradd(scanner.tokens[1], scanner.tokens[2], scanner.tokens[3], scanner.tokens[4]);
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
                 continue;
             }
             if (scanner.getCommand() == "delete") {
@@ -112,6 +170,13 @@ int main() {
                     continue;
                 }
                 AM.Delete(scanner.tokens[1]);
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
                 continue;
             }
             if (scanner.getCommand() == "show") {
@@ -148,6 +213,13 @@ int main() {
                         double outcome = BM.LM.calcoutcome(num);
                         std::cout << std::fixed << std::setprecision(2);
                         std::cout << "+ " << income << " - " << outcome << std::endl;
+                        for (int i = 0; i < 30; i++) {
+                            l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                        }
+                        mapoflog.insert(std::to_string(num), l);
+                        if (AM.log_in_list.top().ac.Privilege >= 3) {
+                            mapofemployee.insert(std::to_string(num), l);
+                        }
                     }
                     if (scanner.tokens.size() == 2) {
                         if (scanner.tokens.size() == 0) {
@@ -159,6 +231,13 @@ int main() {
                         double outcome = BM.LM.calcoutcome(num);
                         std::cout << std::fixed << std::setprecision(2);
                         std::cout << "+ " << income << " - " << outcome << std::endl;
+                        for (int i = 0; i < 30; i++) {
+                            l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                        }
+                        mapoflog.insert(std::to_string(num), l);
+                        if (AM.log_in_list.top().ac.Privilege >= 3) {
+                            mapofemployee.insert(std::to_string(num), l);
+                        }
                     }
                     if (scanner.tokens.size() > 3) {
                         throw Error();
@@ -173,21 +252,49 @@ int main() {
                     if (scanner.tokens[1] == "ISBN")
                     {
                         BM.show(scanner.tokens[2], 0);
+                        for (int i = 0; i < 30; i++) {
+                            l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                        }
+                        mapoflog.insert(std::to_string(num), l);
+                        if (AM.log_in_list.top().ac.Privilege >= 3) {
+                            mapofemployee.insert(std::to_string(num), l);
+                        }
                         continue;
                     }
                     if (scanner.tokens[1] == "name")
                     {
                         BM.show(scanner.tokens[2], 1);
+                        for (int i = 0; i < 30; i++) {
+                            l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                        }
+                        mapoflog.insert(std::to_string(num), l);
+                        if (AM.log_in_list.top().ac.Privilege >= 3) {
+                            mapofemployee.insert(std::to_string(num), l);
+                        }
                         continue;
                     }
                     if (scanner.tokens[1] == "author")
                     {
                         BM.show(scanner.tokens[2], 2);
+                        for (int i = 0; i < 30; i++) {
+                            l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                        }
+                        mapoflog.insert(std::to_string(num), l);
+                        if (AM.log_in_list.top().ac.Privilege >= 3) {
+                            mapofemployee.insert(std::to_string(num), l);
+                        }
                         continue;
                     }
                     if (scanner.tokens[1] == "keyword")
                     {
                         BM.show(scanner.tokens[2], 3);
+                        for (int i = 0; i < 30; i++) {
+                            l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                        }
+                        mapoflog.insert(std::to_string(num), l);
+                        if (AM.log_in_list.top().ac.Privilege >= 3) {
+                            mapofemployee.insert(std::to_string(num), l);
+                        }
                         continue;
                     }
                     throw Error();
@@ -201,6 +308,14 @@ int main() {
                     continue;
                 }
                 BM.buy(scanner.tokens[1], scanner.tokens[2]);
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
+                mapoffinance.insert(std::to_string(num), l);
                 continue;
             }
             if (scanner.getCommand() == "select") {
@@ -215,6 +330,13 @@ int main() {
                 tmp.selected = BM.selected;
                 AM.log_in_list.pop();
                 AM.log_in_list.push(tmp);
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
                 continue;
             }
             if (scanner.getCommand() == "modify") {
@@ -294,6 +416,13 @@ int main() {
                     }
                     throw Error();
                 }
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
                 continue;
             }
             if (scanner.getCommand() == "import") {
@@ -302,10 +431,46 @@ int main() {
                     continue;
                 }
                 BM.import(scanner.tokens[1], scanner.tokens[2]);
+                for (int i = 0; i < 30; i++) {
+                    l.userID_[i] = AM.log_in_list.top().ac.UserID[i];
+                }
+                mapoflog.insert(std::to_string(num), l);
+                if (AM.log_in_list.top().ac.Privilege >= 3) {
+                    mapofemployee.insert(std::to_string(num), l);
+                }
+                mapoffinance.insert(std::to_string(num), l);
                 continue;
             }
             if (scanner.getCommand() == "log") {
-                /* code */
+                if (AM.cur_privilege < 7) {
+                    throw Error();
+                    continue;
+                }
+                Node<Log> minimal = mapoflog.Findminimal();
+                Node<Log> maximal = mapoflog.Findmaximal();
+                std::vector<Node<Log>> tmp = mapoflog.Find(maximal, minimal);
+                for (int i = 0; i < tmp.size(); i++) {
+                    std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << std::endl;
+                }
+                continue;
+            }
+            if (scanner.getCommand() == "report") {
+                if (scanner.tokens[1] == "finance") {
+                    Node<Log> minimal = mapoffinance.Findminimal();
+                    Node<Log> maximal = mapoffinance.Findmaximal();
+                    std::vector<Node<Log>> tmp = mapoffinance.Find(maximal, minimal);
+                    for (int i = 0; i < tmp.size(); i++) {
+                        std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << std::endl;
+                    }
+                }
+                if (scanner.tokens[1] == "employee") {
+                    Node<Log> minimal = mapofemployee.Findminimal();
+                    Node<Log> maximal = mapofemployee.Findmaximal();
+                    std::vector<Node<Log>> tmp = mapofemployee.Find(maximal, minimal);
+                    for (int i = 0; i < tmp.size(); i++) {
+                        std::cout << tmp[i].value.userID_ << ' ' << tmp[i].value.command << std::endl;
+                    }
+                }
                 continue;
             }
             throw Error();
