@@ -1,4 +1,0 @@
-su root sjtu
-select 123
-modify -ISBN=123123 -price=123123.99 -author="granthy" -name="yyu"
-exit
